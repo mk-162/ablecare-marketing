@@ -1,0 +1,1697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marketing Audit: Able Care</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root {
+      --brand: #191919;
+      --brand-light: #2a2a2a;
+      --aqua: #00FAD2;
+      --aqua-dark: #00b89a;
+      --aqua-light: #e6fffb;
+      --blue: #1432FA;
+      --blue-dark: #0020cc;
+      --blue-light: #eaeeff;
+      --grey: #DCDCDC;
+      --text: #1f2a44;
+      --text-light: #64748B;
+      --bg: #fff;
+      --bg-alt: #F7F8FC;
+      --border: #E2E8F0;
+      --green: #10B981;
+      --amber: #F59E0B;
+      --red: #EF4444;
+      --nav-width: 260px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    /* NAV */
+    .sticky-nav {
+      position: fixed; top: 0; left: 0;
+      width: var(--nav-width); height: 100vh;
+      background: var(--brand);
+      overflow-y: auto; z-index: 100;
+    }
+    .nav-header {
+      padding: 2rem 1.5rem 1.5rem;
+      background: linear-gradient(135deg, var(--brand) 0%, #2a2a2a 100%);
+      border-bottom: 2px solid var(--aqua);
+    }
+    .nav-header img { height: 22px; display: block; margin-bottom: 0.6rem; }
+    .nav-header span { color: rgba(255,255,255,0.4); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; }
+    .sticky-nav ul { list-style: none; padding: 1rem 0; }
+    .sticky-nav .nav-link {
+      display: block;
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      padding: 0.5rem 1.5rem;
+      font-size: 0.78rem;
+      font-weight: 400;
+      transition: all 0.2s;
+      border-left: 2px solid transparent;
+    }
+    .sticky-nav .nav-link:hover { color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.03); }
+    .sticky-nav .nav-link.active {
+      color: var(--aqua);
+      border-left-color: var(--aqua);
+      background: rgba(0,255,210,0.06);
+      font-weight: 500;
+    }
+
+    /* MAIN CONTENT */
+    .main-content {
+      margin-left: var(--nav-width);
+      max-width: 960px;
+      padding: 0 3rem 4rem;
+    }
+
+    /* HEADER */
+    .report-header { padding: 3rem 0; }
+    .report-header-inner {
+      background: var(--brand);
+      border-radius: 12px;
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .report-header-inner::before {
+      content: ''; position: absolute;
+      top: -50%; right: -20%;
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, rgba(20,50,255,0.35) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .report-header-inner::after {
+      content: ''; position: absolute;
+      bottom: -30%; left: -10%;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(0,255,210,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .report-header img { height: 36px; margin-bottom: 1.5rem; display: block; position: relative; z-index: 1; }
+    .report-header h1 { font-size: 2.3rem; font-weight: 700; color: #fff; line-height: 1.2; position: relative; z-index: 1; }
+    .report-header .subtitle { font-size: 1rem; color: rgba(255,255,255,0.6); margin-top: 0.5rem; position: relative; z-index: 1; }
+    .report-header .meta { margin-top: 1.5rem; font-size: 0.8rem; color: rgba(255,255,255,0.5); position: relative; z-index: 1; }
+    .report-header .meta span {
+      display: inline-block; margin-right: 1rem;
+      background: rgba(255,255,255,0.08);
+      padding: 0.3rem 0.75rem; border-radius: 4px;
+    }
+    .data-sources {
+      margin-top: 1.5rem; padding: 0.85rem 1rem;
+      background: rgba(255,255,255,0.06);
+      border-radius: 6px; font-size: 0.75rem;
+      color: rgba(255,255,255,0.55);
+      position: relative; z-index: 1;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .data-sources strong { color: var(--aqua); }
+
+    /* SECTIONS */
+    section { padding: 3rem 0; border-bottom: 1px solid var(--border); }
+    section:last-of-type { border-bottom: none; }
+    h2 {
+      font-size: 1.55rem; font-weight: 700;
+      color: var(--brand);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--aqua);
+      display: inline-block;
+    }
+    h3 { font-size: 1.1rem; font-weight: 600; color: var(--brand); margin: 2rem 0 0.75rem; }
+    h4 { font-size: 0.98rem; font-weight: 600; color: var(--text); margin: 1.3rem 0 0.5rem; }
+    p { margin-bottom: 1rem; }
+    a { color: var(--blue); }
+
+    /* INSIGHT CALLOUTS */
+    .insight-callout {
+      display: flex; gap: 1rem;
+      padding: 1.25rem 1.5rem;
+      background: var(--blue-light);
+      border-left: 3px solid var(--blue);
+      border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0;
+    }
+    .insight-callout .insight-icon {
+      font-weight: 700; color: #fff;
+      background: var(--blue);
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem; flex-shrink: 0;
+    }
+    .insight-callout .insight-text { font-size: 0.93rem; line-height: 1.55; }
+    .insight-callout .insight-text strong { color: var(--blue-dark); }
+
+    /* TABLES */
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.84rem;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .comparison-table th {
+      background: var(--brand);
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-weight: 500;
+      color: rgba(255,255,255,0.75);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .comparison-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .comparison-table tbody tr:last-child td { border-bottom: none; }
+    .comparison-table tr:hover td { background: #f9f9fb; }
+    .comparison-table .brand-col {
+      background: rgba(20, 50, 255, 0.05);
+      font-weight: 500;
+    }
+    .comparison-table tr:hover .brand-col { background: rgba(20, 50, 255, 0.09); }
+    .comparison-table th.brand-col { background: var(--blue); color: #fff; }
+    .comparison-table .metric-label { font-weight: 500; color: var(--text-light); white-space: nowrap; }
+
+    /* CHARTS */
+    .chart-container {
+      position: relative;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background: var(--bg-alt);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+    .chart-container canvas { max-height: 420px; }
+    .chart-title {
+      font-weight: 600; font-size: 0.82rem;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* DETAIL PANELS */
+    details.detail-panel { border: 1px solid var(--border); border-radius: 8px; margin: 1.5rem 0; }
+    details.detail-panel summary {
+      padding: 0.8rem 1rem;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--blue);
+      background: var(--bg-alt);
+      border-radius: 8px;
+      font-size: 0.88rem;
+    }
+    details.detail-panel[open] summary { border-bottom: 1px solid var(--border); border-radius: 8px 8px 0 0; }
+    details.detail-panel .detail-content { padding: 1.25rem; font-size: 0.9rem; }
+
+    /* SWOT */
+    .swot-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 1.5rem 0;
+    }
+    .swot-cell { padding: 1.5rem; background: var(--bg); }
+    .swot-cell h4 { margin: 0 0 0.75rem; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; }
+    .swot-cell ul { list-style: none; padding: 0; }
+    .swot-cell li {
+      padding: 0.35rem 0;
+      font-size: 0.84rem;
+      padding-left: 1rem;
+      position: relative;
+      line-height: 1.5;
+    }
+    .swot-cell li::before {
+      content: ''; position: absolute; left: 0; top: 0.6rem;
+      width: 6px; height: 6px; border-radius: 2px;
+    }
+    .swot-strengths { border-top: 3px solid var(--aqua); }
+    .swot-strengths h4 { color: var(--aqua-dark); }
+    .swot-strengths li::before { background: var(--aqua); }
+    .swot-weaknesses { border-top: 3px solid var(--amber); }
+    .swot-weaknesses h4 { color: var(--amber); }
+    .swot-weaknesses li::before { background: var(--amber); }
+    .swot-opportunities { border-top: 3px solid var(--blue); }
+    .swot-opportunities h4 { color: var(--blue); }
+    .swot-opportunities li::before { background: var(--blue); }
+    .swot-threats { border-top: 3px solid var(--red); }
+    .swot-threats h4 { color: var(--red); }
+    .swot-threats li::before { background: var(--red); }
+
+    /* BCG 2x2 */
+    .grid-2x2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 1.5rem 0;
+    }
+    .grid-2x2 .cell { padding: 1.5rem; background: var(--bg); }
+    .grid-2x2 .cell h4 {
+      margin: 0 0 0.5rem; font-size: 0.78rem;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-light);
+    }
+    .grid-2x2 .cell p { font-size: 0.88rem; margin: 0; }
+
+    /* PILL TAGS */
+    .pill {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      background: var(--aqua-light);
+      color: var(--aqua-dark);
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-right: 0.4rem;
+    }
+    .pill.blue { background: var(--blue-light); color: var(--blue-dark); }
+    .pill.amber { background: #fef5e7; color: #b37700; }
+    .pill.red { background: #fde8e8; color: #b42d2d; }
+
+    /* INITIATIVE CARDS */
+    .init-grid, .initiative-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .init-card, .initiative-card {
+      padding: 1.2rem 1.3rem;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--blue);
+      border-radius: 8px;
+    }
+    .init-card h4, .initiative-card h4 {
+      margin: 0 0 0.5rem;
+      font-size: 0.95rem;
+      color: var(--brand);
+    }
+    .init-card .meta-row { margin-bottom: 0.6rem; }
+    .init-card p, .initiative-card p { font-size: 0.85rem; margin: 0 0 0.5rem; color: var(--text); }
+
+    /* PHASE ROADMAP */
+    .phase-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 1.5rem 0 2.25rem;
+    }
+    .phase-card {
+      position: relative;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem 1.25rem 1.25rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
+    }
+    .phase-card .phase-badge {
+      position: absolute;
+      top: -14px; left: 1.25rem;
+      background: var(--blue);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+    }
+    .phase-card.p1 .phase-badge { background: #DCDCDC; color: #191919; }
+    .phase-card.p2 .phase-badge { background: #1432FA; }
+    .phase-card.p3 .phase-badge { background: #00FAD2; color: #191919; }
+    .phase-card .phase-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--brand);
+      margin: 0.5rem 0 0.85rem;
+    }
+    .phase-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 0.9rem;
+      flex: 1;
+    }
+    .phase-card li {
+      position: relative;
+      padding: 0 0 0.55rem 1.1rem;
+      font-size: 0.85rem;
+      line-height: 1.45;
+      color: var(--text);
+    }
+    .phase-card li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0.55rem;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+    .phase-card .phase-outcome {
+      margin: 0;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem;
+      color: var(--text-light);
+      font-style: italic;
+    }
+
+    /* DECISION CARDS */
+    .decision-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 1.25rem 0 2rem;
+    }
+    .decision-card {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--blue);
+      border-radius: 10px;
+      padding: 1.25rem 1.1rem;
+    }
+    .decision-card .decision-icon {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--blue-light);
+      color: var(--blue);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .decision-card h4 {
+      margin: 0 0 0.5rem;
+      font-size: 0.92rem;
+      color: var(--brand);
+    }
+    .decision-card p {
+      margin: 0;
+      font-size: 0.82rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* HORIZON STATS */
+    .horizon-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+      margin: 1.25rem 0 1.75rem;
+    }
+    .horizon-stat {
+      background: var(--brand);
+      color: #fff;
+      border-radius: 10px;
+      padding: 1.1rem 1rem;
+      text-align: center;
+    }
+    .horizon-stat .stat-big {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--aqua);
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+    .horizon-stat .stat-label {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.35;
+    }
+
+    @media (max-width: 820px) {
+      .phase-grid, .decision-grid { grid-template-columns: 1fr; }
+      .horizon-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* FOOTER */
+    footer {
+      margin-left: var(--nav-width);
+      max-width: 960px;
+      padding: 2.5rem 3rem;
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+    footer .footer-inner {
+      background: var(--bg-alt);
+      border-radius: 10px;
+      padding: 2rem;
+      border: 1px solid var(--border);
+    }
+    footer .footer-brand {
+      font-weight: 700;
+      color: var(--brand);
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* MOBILE */
+    .hamburger { display: none; }
+    @media (max-width: 1024px) {
+      .sticky-nav { transform: translateX(-100%); transition: transform 0.3s; z-index: 1000; }
+      .sticky-nav.open { transform: translateX(0); }
+      .main-content, footer { margin-left: 0; padding: 0 1.25rem 3rem; }
+      .report-header-inner { padding: 2rem; border-radius: 8px; }
+      .grid-2x2, .swot-grid, .init-grid { grid-template-columns: 1fr; }
+      .hamburger {
+        display: block; position: fixed; top: 1rem; left: 1rem; z-index: 1001;
+        background: var(--brand); color: var(--aqua); border: none;
+        padding: 0.5rem 0.75rem; border-radius: 6px; cursor: pointer; font-size: 1.2rem;
+      }
+    }
+    @media print {
+      .sticky-nav, .hamburger { display: none; }
+      .main-content, footer { margin-left: 0; }
+      .report-header-inner { background: #fff; color: #000; }
+      .report-header-inner::before, .report-header-inner::after { display: none; }
+      .report-header h1, .report-header .subtitle, .report-header .meta span { color: #000; }
+      details[open] summary { display: none; }
+      .detail-content { display: block !important; }
+      canvas { max-width: 100%; page-break-inside: avoid; }
+      section { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- PASSWORD GATE -->
+<div id="pw-gate" style="position:fixed;inset:0;background:#191919;z-index:9999;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;">
+  <div style="max-width:380px;width:90%;text-align:center;color:#fff;">
+    <img src="https://www.able-care.co/wp-content/uploads/logo.png" alt="Able Care" style="height:36px;margin-bottom:1.5rem;filter:brightness(0) invert(1);">
+    <h1 style="font-size:1.3rem;font-weight:600;margin-bottom:0.4rem;">Marketing Audit</h1>
+    <p style="font-size:0.88rem;color:rgba(255,255,255,0.6);margin-bottom:1.5rem;">This document is confidential. Please enter the access password to continue.</p>
+    <form id="pw-form" style="display:flex;gap:0.5rem;">
+      <input id="pw-input" type="password" placeholder="Password" autofocus style="flex:1;padding:0.75rem 1rem;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.05);color:#fff;border-radius:6px;font-family:inherit;font-size:0.95rem;outline:none;">
+      <button type="submit" style="padding:0.75rem 1.25rem;background:#1432FA;color:#fff;border:none;border-radius:6px;font-family:inherit;font-weight:600;font-size:0.9rem;cursor:pointer;">Enter</button>
+    </form>
+    <p id="pw-error" style="color:#ff6b6b;font-size:0.82rem;margin-top:0.8rem;min-height:1rem;"></p>
+  </div>
+</div>
+<script>
+(function(){
+  // Simple client-side gate. Change EXPECTED to update the password.
+  // Value is btoa(password). Current password: "ablecare2026"
+  var EXPECTED = "YWJsZWNhcmUyMDI2";
+  var gate = document.getElementById('pw-gate');
+  document.body.style.overflow = 'hidden';
+  if (sessionStorage.getItem('ac-audit-unlocked') === '1') {
+    gate.remove();
+    document.body.style.overflow = '';
+    return;
+  }
+  document.getElementById('pw-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    var val = document.getElementById('pw-input').value;
+    if (btoa(val) === EXPECTED) {
+      sessionStorage.setItem('ac-audit-unlocked', '1');
+      gate.remove();
+      document.body.style.overflow = '';
+    } else {
+      document.getElementById('pw-error').textContent = 'Incorrect password. Please try again.';
+      document.getElementById('pw-input').value = '';
+    }
+  });
+})();
+</script>
+
+<button class="hamburger" onclick="document.querySelector('.sticky-nav').classList.toggle('open')">&#9776;</button>
+
+<nav class="sticky-nav">
+  <div class="nav-header"><img src="https://www.able-care.co/wp-content/uploads/logo.png" alt="Able Care"><span>Marketing Audit</span></div>
+  <ul>
+    <li><a href="#executive-summary" class="nav-link active">Executive Summary</a></li>
+    <li><a href="#brand-overview" class="nav-link">Brand Overview</a></li>
+    <li><a href="#market-context" class="nav-link">Market &amp; Category</a></li>
+    <li><a href="#audience-profile" class="nav-link">Audience &amp; Segments</a></li>
+    <li><a href="#competitive-landscape" class="nav-link">Competitive Landscape</a></li>
+    <li><a href="#product-analysis" class="nav-link">Product &amp; Value Framing</a></li>
+    <li><a href="#website-audit" class="nav-link">Website Audit</a></li>
+    <li><a href="#seo-audit" class="nav-link">SEO Audit</a></li>
+    <li><a href="#cro-audit" class="nav-link">CRO Audit</a></li>
+    <li><a href="#conversion-funnel" class="nav-link">Conversion Funnel</a></li>
+    <li><a href="#ai-initiatives" class="nav-link">AI Initiatives</a></li>
+    <li><a href="#seo-geo" class="nav-link">SEO &amp; GEO</a></li>
+    <li><a href="#swot" class="nav-link">SWOT Summary</a></li>
+    <li><a href="#strategic-implications" class="nav-link">Strategic Implications</a></li>
+    <li><a href="#services-plan" class="nav-link">Marketing Services Plan</a></li>
+  </ul>
+</nav>
+
+<main class="main-content">
+
+<header class="report-header">
+  <div class="report-header-inner">
+    <img src="https://www.able-care.co/wp-content/uploads/logo.png" alt="Able Care">
+    <h1>Marketing Audit &amp; Growth Plan</h1>
+    <p class="subtitle">Situational analysis and 2026 commercial accelerator for Able Care and Able Assess</p>
+    <div class="meta">
+      <span>April 2026</span>
+      <span>US &amp; UK</span>
+      <span>Prepared for Able Care leadership</span>
+    </div>
+    <div class="data-sources">
+      <strong>Data sources:</strong> Falls Prevention Commercialization Strategy 2026, Able Care AI &amp; Website Plan, Website Opportunity Analysis, Sitemap Audit, full SEO and CRO audits (March 2026), live walk-through of able-care.co, industry market research (Grand View, Fortune Business Insights, McKnight's Senior Living), and public company data.
+    </div>
+  </div>
+</header>
+
+<!-- EXECUTIVE SUMMARY -->
+<section id="executive-summary">
+  <h2>Executive Summary</h2>
+
+  <p>Able Care enters 2026 with a rare combination that most early-stage health-tech companies spend years assembling. It owns an unusually credentialed proof base, with Harvard, Johns Hopkins, Oxford, Mount Sinai, MD Anderson, and Mass General affiliations already on the page, and regulatory posture (FDA, CE, ISO 27001, ISO 13485, IEC 60601, HIPAA, GDPR) that sits above the waterline for corporate healthcare buyers. The clinical story, anchored to CDC STEADI and the 2022 World Guidelines for falls prevention, is defensible. The product, Able Assess, is the only platform currently bundling the four most-cited functional measurements (grip strength, timed up and go, thirty-second chair to stand, and four-metre gait speed) into a single five-minute screening any staff member can run. The market tailwind is real: one in four US seniors falls each year, 61% of senior care facilities plan to implement smart systems by 2026, and projected annual medical expenditure on falls is on course to pass $100 billion by 2030.</p>
+
+  <p>The 2026 commercialization strategy correctly identifies the two priority targets where this proof base converts fastest into repeatable revenue: PE-backed and franchised non-clinical home care, and corporate senior living (CCRCs, rental retirement, IL, AL, for-profit SNF). Both are consolidated enough that a single corporate win unlocks a franchise network, and both face P&amp;L and liability pressures that a five-minute objective screening directly addresses. The strategy also correctly sequences the motion: bottom-up BDR and franchise-level outreach paired with top-down corporate introductions, with an urgent "two segment one-pagers ASAP" marketing need. This audit agrees with that frame and extends it.</p>
+
+  <p>The gap is execution surface. The website, which is the landing layer for every motion in the plan, is in a credible-but-under-converting state. Prior audits scored it 4/10 on SEO and 6/10 on CRO and both diagnoses hold up. The site has no buyer-segment pages at all, frames every value prop for the clinician rather than the operator buyer, gives champions nothing to forward internally, and is bleeding organic discovery through missing schema, missing H1s on the highest-value commercial pages, 60+ unlabelled images on the homepage, and an apparent indexation gap where ~36 sitemapped URLs yield only ~7 indexed pages. These are not redesign problems. They are hygiene problems that compound daily until they are fixed.</p>
+
+  <p>The competitive landscape is in Able Care's favour at the layer that matters. At the consumer pendant layer, the category is crowded (Lifeline, ADT, Medical Guardian). At the digital-screening-for-operators layer where Able Care actually sells, the set is small and none of the serious players own the "non-clinical-staff usable, five-minute, four-measurement, CDC-aligned" position. SafelyYou has the strongest senior-living brand but competes on reactive AI video rather than proactive screening. Linus Health is well-funded but leads with cognition. VirtuSense and Zibrio address slices of the same measurement stack. None of them hold the top-right quadrant of staff-wide-usable and proactive. That quadrant is Able Care's to claim, and the plan to claim it is a function of messaging and website architecture, not product development.</p>
+
+  <p>The single largest unlock this audit identifies is the pairing of (a) segment landing pages mapped one-to-one to the strategy's buyer tiers, with (b) an AI-accelerated content factory that produces the segment one-pagers, email sequences, and social assets at 5–10× current velocity. The 2026 plan needs seven segment one-pagers, a growing cadence of blog and thought-leadership content, per-account outbound briefs, and conversation intelligence, all with a team that is small by design. AI is the only plausible way to hit that surface area. This report therefore treats the content factory, claims guardrail library, and brand-voice assistant as Tier 1 commercial infrastructure, not optional experiments.</p>
+
+  <p>The central question for Able Care leadership is not whether the brand has the raw materials to win this category. It does. The question is whether the team will sequence the next ninety days tightly enough to convert a credible proof base into booked demos from PE operators and corporate senior living COOs before a better-funded competitor rewrites the positioning conversation. This audit recommends a ninety-day sprint covering website hygiene, segment page rollout, the AI content factory, and an evidence layer the sales team can point champions at from day one.</p>
+</section>
+
+<!-- BRAND OVERVIEW -->
+<section id="brand-overview">
+  <h2>Brand Overview</h2>
+
+  <h3>What Able Care Does</h3>
+  <p>Able Care sells Able Assess, a digital falls-risk screening platform built to be delivered by clinical or non-clinical staff in under five minutes. The platform captures four functional measurements (single maximum grip strength, timed up and go, thirty-second chair to stand, and four-metre gait speed) and stratifies residents into low, intermediate, or high risk in line with the 2022 World Guidelines for falls prevention and management for older adults. The brand promise, taken from the guidelines document, is <em>"Able Care is enabling intelligent health."</em></p>
+
+  <h3>Credibility Anchors</h3>
+  <p>The brand's proof base is stronger than its current traffic levels suggest. Institutional affiliations and research partnerships with Harvard, Johns Hopkins, Oxford, Mount Sinai, MD Anderson, and Mass General give it academic authority most peers cannot match. Regulatory posture is comprehensive: FDA, CE, ISO 27001, ISO 13485, IEC 60601, HIPAA, and GDPR. These are assets that should anchor every segment page and every champion-forwarding asset, not sit in a footer strip or rotate through a homepage carousel.</p>
+
+  <h3>Brand System</h3>
+  <p>The visual system is defined in the Able Care brand guidelines v1: a confident, modern sans-serif, grey-dominant backgrounds, with Blue (#1432FF) and Aqua (#00FFD2) as strategic accents, and the stylised "A" mark as a hero graphic device. Title case "Able Care" in body copy; the mark is hero, the wordmark supports. The overall brand temperature is clinical but human, tech-literate but trustworthy. This audit follows those guidelines verbatim.</p>
+
+  <div class="insight-callout">
+    <div class="insight-icon">!</div>
+    <div class="insight-text"><strong>Key observation:</strong> The credentials and regulatory posture Able Care has already earned would cost a competitor two to three years and low-seven-figures of research investment to replicate. The single biggest brand error the company can make in 2026 is failing to put those credentials above the fold on every commercial page.</div>
+  </div>
+
+  <h3>Positioning Recommendation</h3>
+  <p>The current website positions Able Assess as a clinical tool for clinicians. The 2026 strategy sells it as a P&amp;L lever for operators. Those are two different products commercially even though the underlying software is identical. The recommended one-line positioning for the operator buyer is:</p>
+  <p style="padding: 1rem 1.25rem; background: var(--aqua-light); border-left: 3px solid var(--aqua); border-radius: 0 8px 8px 0; font-size: 1.02rem; font-weight: 500; color: var(--brand);">The falls-prevention platform built for non-clinical teams in home care and senior living. Easy to roll out, proven to reduce falls, and designed to protect NOI, residents, and reputation alike.</p>
+  <p>This positioning is then carried through three pillars, which should appear on the homepage and every segment page: <strong>Protect residents</strong> (CDC-aligned screening in minutes, delivered by any staff member), <strong>Protect the P&amp;L</strong> (fewer falls, lower turnover, reduced liability, stronger census), <strong>Protect your growth</strong> (a plug-and-play tech layer that scales across franchises, campuses, and portfolios).</p>
+</section>
+
+<!-- MARKET CONTEXT -->
+<section id="market-context">
+  <h2>Market &amp; Category Context</h2>
+
+  <h3>Market Sizing</h3>
+  <p>Market estimates vary by definition. The most useful framing for Able Care's commercial planning is TAM/SAM/SOM across the digital falls-prevention layer, not the broader category of grab bars and bathroom sensors that inflates industry reports.</p>
+
+  <table class="comparison-table">
+    <thead>
+      <tr><th>Level</th><th>Estimate</th><th>Basis</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="metric-label">TAM (Global fall prevention products, 2026)</td><td>$3.48B, mid-single-digit CAGR</td><td>Grand View Research, Fortune Business Insights, DataHorizzon Research</td></tr>
+      <tr><td class="metric-label">TAM (Fall detection systems only, 2026)</td><td>$526M</td><td>Market Growth Reports, Future Market Insights</td></tr>
+      <tr><td class="metric-label">SAM (US digital screening for home care &amp; senior living)</td><td>$250–400M</td><td>Estimated from SAM slice of US operator spend on clinical-workflow software</td></tr>
+      <tr><td class="metric-label">SAM (Non-clinical home care alone)</td><td>~$60M</td><td>Falls Prevention Commercialization Strategy 2026</td></tr>
+      <tr><td class="metric-label">SOM (Reachable by Able Care, 2026–2027)</td><td>$10–25M ARR</td><td>Gated by sales capacity and segment sequencing, not demand</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Category Tailwinds</h3>
+
+  <h4>PE consolidation of home care and senior living</h4>
+  <p>The 2026 strategy names twelve PE-backed home care operators including Help at Home, Elara Caring, Care Advantage, Senior Helpers, Altocare, Aveanna, BrightStar Care, Interim HealthCare, Home Instead, Comfort Keepers, and Right at Home. Each one represents a single buying centre that, if won, propagates across dozens of locations. Senior living is on the same trajectory. This is the critical structural feature of the category: a small number of corporates now control a disproportionate share of the addressable endpoints.</p>
+
+  <h4>Regulatory pressure</h4>
+  <p>OASIS Section GG in home health, the SAFE Act in multiple states, and Medicaid MLTSS quality ratings are shifting falls screening from nice-to-have toward compliance-adjacent. Twenty-four states now route HCBS contracts through private MCOs, which opens a preferred-vendor-list opportunity Able Care should pursue with a dedicated response engine.</p>
+
+  <h4>Non-clinical workforce reality</h4>
+  <p>Home care staff are largely 1099 contractors, non-clinical, and in a permanent high-turnover loop. Any screening tool that requires onboarding friction loses. Any tool a new hire can run on day one wins. This is the single biggest product-market-fit lever for Able Assess and it should be the lead message on the home care segment page.</p>
+
+  <h4>Generative AI and the shift in how buyers research</h4>
+  <p>A non-trivial share of 2026 B2B healthcare buyers now begin research in ChatGPT, Perplexity, Google AI Overviews, and Claude. Current Able Care content is not structured for AI citation. This is addressed in detail in the SEO &amp; GEO section.</p>
+
+  <h3>PESTLE Summary</h3>
+  <table class="comparison-table">
+    <thead>
+      <tr><th>Factor</th><th>Implication for Able Care</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="metric-label">Political</td><td>SAFE Act passage in multiple US states and CMS quality-rating pressure are elevating falls prevention in operator scorecards. Federal focus on aging-in-place policy is a structural tailwind.</td></tr>
+      <tr><td class="metric-label">Economic</td><td>Staff turnover in home care is a $10,000-per-hire cost centre. Tools that reduce onboarding time have a direct ROI story. PE-backed operators are operating under NOI pressure, which makes liability reduction a top-tier buying criterion.</td></tr>
+      <tr><td class="metric-label">Social</td><td>72% of seniors prefer aging in place. Family members are increasingly the information-gatherers for care decisions, which opens a secondary consumer-facing content opportunity Able Care does not currently address.</td></tr>
+      <tr><td class="metric-label">Technological</td><td>61% of senior care facilities plan to implement smart systems by 2026. The operator buyer is primed for tech but deeply sceptical of complexity. Integration, ease of rollout, and security posture are the decisive technology features, not raw capability.</td></tr>
+      <tr><td class="metric-label">Legal</td><td>Fall-related lawsuits are among the largest liability exposures in senior living. HIPAA, Section GG, and state-level MLTSS requirements are both a sales lever (compliance pain) and a risk (claims must be verifiable). The claims library is not optional.</td></tr>
+      <tr><td class="metric-label">Environmental</td><td>Lower-priority factor for this category, but the broader ESG push in PE reporting is giving resident-wellbeing metrics unexpected visibility at board level.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- AUDIENCE PROFILE -->
+<section id="audience-profile">
+  <h2>Audience &amp; Segments</h2>
+
+  <p>The strategy document names seven priority sub-segments across non-clinical home care and corporate senior living. The audit treats the segments as the commercial spine of the website and the content engine. Every piece of marketing collateral should pick a segment, pick a persona, and speak that person's language.</p>
+
+  <h3>Priority Segments</h3>
+  <table class="comparison-table">
+    <thead>
+      <tr><th>Segment</th><th>Commercial priority</th><th>Buyer language</th><th>Primary motion</th></tr>
+    </thead>
+    <tbody>
+      <tr class="brand-col"><td class="metric-label"><strong>PE-backed / franchised home care</strong></td><td>Tier 1</td><td>NOI, turnover cost, franchise economics, staff retention, census</td><td>Top-down to corporate HQ + bottom-up franchise owners</td></tr>
+      <tr><td class="metric-label">Independent multi-site home care</td><td>Tier 1</td><td>Operational efficiency, staff retention, differentiator</td><td>Bottom-up BDR / LinkedIn</td></tr>
+      <tr><td class="metric-label">CCRCs (corporate)</td><td>Tier 1</td><td>Resident retention, liability, census velocity, quality rating</td><td>Top-down to corporate + ED-level champion</td></tr>
+      <tr><td class="metric-label">Rental retirement (IL/AL corporate)</td><td>Tier 1</td><td>Census, turnover, ancillary revenue, liability</td><td>Top-down corporate</td></tr>
+      <tr><td class="metric-label">IL-only communities (corporate)</td><td>Tier 2</td><td>Resident retention, aging-in-place extension</td><td>Corporate</td></tr>
+      <tr><td class="metric-label">AL-only communities (corporate)</td><td>Tier 2</td><td>Clinical outcomes, liability, Section GG defensibility</td><td>Corporate</td></tr>
+      <tr><td class="metric-label">For-profit SNFs (corporate)</td><td>Tier 2</td><td>Quality rating, reimbursement, Section GG coding</td><td>Corporate</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Personas Across the Buying Committee</h3>
+  <p>Corporate and PE decision-makers (Operating Partners, Portfolio Managers, CEO/COO, VP Ops) are the primary buyers; they care about NOI, turnover, liability, standardisation, and a scalable tech stack. Clinical and operational leaders (Head of Clinical, VP Clinical Services, Director of Nursing, Wellness Director) are the primary champions; they care about resident outcomes, reduced staff burden, standardisation, and CDC alignment. Innovation and IT leaders (Head of Innovation, IT Director) are the enablers; they care about integrations, ease of rollout, and security. Franchise owners and community EDs are the bottom-up path; they care about census, staff retention, P&amp;L, and ease of adoption. Care managers and nurses are the daily users; they care about workflow speed, objective data, and defensible recommendations.</p>
+
+  <div class="insight-callout">
+    <div class="insight-icon">!</div>
+    <div class="insight-text"><strong>The single most important buyer distinction:</strong> the person using the product is almost never the person buying it. Every current page on able-care.co speaks to the user. Every new commercial page this audit recommends should speak to the buyer.</div>
+  </div>
+</section>
+
+<!-- COMPETITIVE LANDSCAPE -->
+<section id="competitive-landscape">
+  <h2>Competitive Landscape</h2>
+
+  <p>The falls-prevention market has three distinct layers and conflating them is the most common strategic error made by buyers, analysts, and even some of the players themselves. Able Care's entire competitive narrative depends on separating the layers cleanly.</p>
+
+  <h3>Three-Layer Map</h3>
+  <table class="comparison-table">
+    <thead>
+      <tr><th>Layer</th><th>What it does</th><th>Representative players</th><th>Relationship to Able Care</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="metric-label">1. Consumer PERS / pendants</td><td>Reactive fall detection, emergency call</td><td>Lifeline, ADT Health, Medical Guardian, Bay Alarm, MobileHelp, Lively</td><td>Not competitors. Buyers may conflate. Messaging must separate "detect" from "prevent."</td></tr>
+      <tr class="brand-col"><td class="metric-label"><strong>2. Digital screening &amp; risk platforms</strong></td><td><strong>Proactive functional screening and risk stratification</strong></td><td><strong>Able Care (Able Assess), SafelyYou, Linus Health, VirtuSense, Zibrio, Nymbl Science, BioSensics</strong></td><td><strong>The real competitive set.</strong></td></tr>
+      <tr><td class="metric-label">3. Legacy clinical protocols</td><td>Paper-based STEADI, TUG, Berg, Tinetti POMA</td><td>"Do nothing new" default</td><td>Positioned as the layer Able Assess digitises, not competes with.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Layer 2 Competitor Comparison</h3>
+  <table class="comparison-table">
+    <thead>
+      <tr><th>Brand</th><th>Core approach</th><th>Primary segment</th><th>Position vs Able Care</th></tr>
+    </thead>
+    <tbody>
+      <tr class="brand-col"><td><strong>Able Care</strong></td><td>5-minute functional screening (grip + TUG + CTS + gait), usable by non-clinical staff</td><td>Home care, senior living</td><td>Only player bundling all four measurements with operator-facing positioning</td></tr>
+      <tr><td>SafelyYou</td><td>AI video monitoring for fall detection and review</td><td>Senior living, memory care</td><td>Strongest senior-living brand but reactive, not proactive; does not screen</td></tr>
+      <tr><td>Linus Health</td><td>Digital cognitive + functional assessment</td><td>Primary care, senior living</td><td>Well funded, Harvard-origin, leads with cognition rather than falls</td></tr>
+      <tr><td>VirtuSense</td><td>Sensor + AI gait and balance analysis (hardware-led)</td><td>Senior living, rehab</td><td>Capital-intensive install; narrower measurement stack</td></tr>
+      <tr><td>Zibrio</td><td>Smart balance scale producing a stability score</td><td>Clinics, senior living, consumer</td><td>Single-metric approach; complementary rather than competitive at platform level</td></tr>
+      <tr><td>Nymbl Science</td><td>Mobile balance-training app, payer distribution</td><td>Health plans, older adult consumers</td><td>B2B2C training play, not an assessment tool for operators</td></tr>
+      <tr><td>BioSensics</td><td>Wearables and digital biomarkers for research</td><td>Clinical trials, research</td><td>Research-focused, not a commercial operator product</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Perceptual Map</h3>
+  <p>The two axes that actually matter in this category are <em>who can run the assessment</em> (clinician-only through to any staff member) and <em>what the product does</em> (reactive detection through to proactive screening). The top-right quadrant is staff-wide usable and proactive. It is currently unoccupied. Able Care should own it.</p>
+
+  <div class="chart-container">
+    <div class="chart-title">Perceptual Positioning — Digital Falls Layer</div>
+    <canvas id="perceptualChart"></canvas>
+  </div>
+
+  <h3>Points of Parity and Points of Difference</h3>
+  <p><strong>Points of parity</strong> (what every credible player must offer): HIPAA-compliant data handling, a clinically defensible measurement basis, mobile-friendly delivery, integration with common operator tech stacks, and a meaningful customer list. Able Care meets all of these.</p>
+  <p><strong>Points of difference</strong> (what genuinely sets Able Care apart): the four-measurement bundle in a single workflow, the non-clinical staff usability, the five-minute run time, alignment to the 2022 World Guidelines, the academic credential stack, and the longevity-adjacent grip-strength thought-leadership angle. None of these differentiators are currently foregrounded on the website.</p>
+</section>
+
+<!-- PRODUCT ANALYSIS -->
+<section id="product-analysis">
+  <h2>Product &amp; Value Framing</h2>
+
+  <h3>Product Surface</h3>
+  <p>Able Assess captures four functional measurements in a single workflow: single maximum grip strength, timed up and go, thirty-second chair to stand, and four-metre gait speed. The output is a stratified risk category (low, intermediate, high) with an accompanying record suitable for care planning, reporting, and reimbursement documentation. The platform is mobile-delivered and designed for a non-clinical operator to complete unsupervised.</p>
+
+  <h3>Value Framing by Buyer Pillar</h3>
+  <p>The 2026 strategy identifies five repeatable value props across all segments. The website should lead with different ones for different segments, but the underlying five are stable:</p>
+  <table class="comparison-table">
+    <thead>
+      <tr><th>Pillar</th><th>What the buyer hears</th><th>Strongest for</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="metric-label">Customer acquisition</td><td>Tech differentiator, reduced resident acquisition time, census lift</td><td>PE operators, corporate CCRC, rental retirement</td></tr>
+      <tr><td class="metric-label">Staff efficiency and retention</td><td>Non-clinical friendly, reduces documentation burden, reduces turnover</td><td>Home care, franchise owners, EDs</td></tr>
+      <tr><td class="metric-label">Customer / resident retention</td><td>Fewer falls, fewer hospitalisations, higher LTV and quality scores</td><td>CCRC, IL, AL</td></tr>
+      <tr><td class="metric-label">Liability reduction</td><td>Fall-related lawsuits are a primary cost centre; objective screening is the defence</td><td>AL, SNF, corporate senior living</td></tr>
+      <tr><td class="metric-label">CDC-aligned standardisation</td><td>Delivered by non-clinical workforces across states and sites</td><td>Multi-site corporate, franchise, PE portfolios</td></tr>
+    </tbody>
+  </table>
+
+  <h3>BCG Growth-Share View</h3>
+  <p>Able Care's product portfolio is concentrated. Able Assess is the single commercial product, with grip strength thought-leadership and clinical reference content as supporting brand assets. Viewed at the <em>use-case</em> rather than SKU level, the portfolio maps as follows:</p>
+  <div class="grid-2x2">
+    <div class="cell">
+      <h4>Stars (high growth, strong share opportunity)</h4>
+      <p>Able Assess in non-clinical home care. The market is consolidating fast under PE, there is no incumbent at the "staff-wide usable, four-measurement" position, and the ROI story is clean. This is where capital should concentrate.</p>
+    </div>
+    <div class="cell">
+      <h4>Question marks (high growth, share to be won)</h4>
+      <p>Able Assess in corporate senior living (CCRC, rental retirement, corporate AL). The category is growing and the value framing is strong, but the buying cycle is longer and the competitive set is more aware. Winnable with focused segment pages and named case studies.</p>
+    </div>
+    <div class="cell">
+      <h4>Cash cows (stable share, moderate growth)</h4>
+      <p>Grip strength content and the longevity-adjacent narrative. Generates credibility and inbound signal. Low cost to maintain, should not be over-invested in at the expense of the commercial segment engine.</p>
+    </div>
+    <div class="cell">
+      <h4>Dogs (low growth, low share)</h4>
+      <p>Consumer-direct fall screening. Not a commercial priority for 2026. Mentioned here only to flag that the site should not split its narrative across consumer and operator stories.</p>
+    </div>
+  </div>
+
+  <h3>Pricing Posture</h3>
+  <p>Pricing is not currently published. In B2B healthcare, silence on price reads as "too expensive to show." The audit recommendation is to publish a starting-from figure on the relevant segment pages ("starting from $X per site per month, contact for a detailed quote") rather than leave the buyer to infer. This is addressed in the website section.</p>
+</section>
+
+<!-- WEBSITE AUDIT -->
+<section id="website-audit">
+  <h2>Website Audit &amp; Rebuild Case</h2>
+
+  <p>The website is the single most leveraged surface in the 2026 plan. Every motion the strategy document describes — bottom-up BDR, top-down Paul/Dani corporate outreach, LinkedIn, paid, earned, content — ultimately lands the prospect on a page. That page is, today, working against the sale.</p>
+
+  <h3>The Headline Diagnosis</h3>
+  <p>A full SEO and CRO audit (March 2026, included in this document) scored able-care.co 4/10 on SEO and 6/10 on CRO. This audit confirms those scores and sharpens the read: the site is optimised to educate curious clinicians at a moment when the 2026 commercial reality is that the buyers are PE operating partners, corporate COOs, EDs, and franchise owners. The gap is not cosmetic. It is architectural.</p>
+
+  <h3>Five Structural Gaps</h3>
+  <div class="init-grid">
+    <div class="init-card">
+      <h4>1. No buyer-segment pages at all</h4>
+      <p>The site has two product pages and zero segment pages. There is no /solutions/home-care/, no /solutions/ccrc/, no /solutions/assisted-living/. A BDR sending a PE CFO to the homepage is asking that CFO to translate "grip strength sensor" into "NOI lever" on their own. They will not.</p>
+    </div>
+    <div class="init-card">
+      <h4>2. Clinician-first messaging on an operator-first buyer</h4>
+      <p>Every value prop on the site is framed for the nurse or PT. The buyer speaks NOI, turnover, liability, census velocity, Section GG. None of that language appears on the current homepage.</p>
+    </div>
+    <div class="init-card">
+      <h4>3. No evidence layer for champions</h4>
+      <p>Champions (an ED, a Head of Clinical) are the forward-this-to-my-CFO layer of B2B healthcare. The site gives them nothing to forward: no /evidence/ page, no per-segment PDF, no procurement packet, no security one-pager.</p>
+    </div>
+    <div class="init-card">
+      <h4>4. A single high-commitment CTA</h4>
+      <p>"Book a Demo" is the only path. Any visitor not meeting-ready leaves with no downstream hook. A secondary 1-pager download and a 60–90 second product tour video would widen top-of-funnel from ~1% to a realistic 8–15%.</p>
+    </div>
+    <div class="init-card">
+      <h4>5. Technical hygiene bleed</h4>
+      <p>Pages return no-store, no-cache, killing caching and crawl efficiency. Zero schema markup site-wide. Missing H1s on About and both Solution pages. 60+ images on the homepage with empty alt text, including every trust logo. 36 sitemapped URLs vs ~7 indexed. The resources.able-care.co subdomain is splitting authority.</p>
+    </div>
+    <div class="init-card">
+      <h4>6. No instrumentation or accessibility story</h4>
+      <p>No confirmed GA4 event setup, no baseline conversion rate, no accessibility statement. The audience is people designing services for older adults; WCAG 2.2 AA is a procurement checkbox.</p>
+    </div>
+  </div>
+
+  <h3>What's Working (Do Not Break)</h3>
+  <p>The elite trust logos, the regulatory posture, the problem framing ($80B, 50%, 36%, 3x statistics), the depth of the 25-post content library, and the clean URL structure, HTTPS, sitemap, and mobile viewport. These carry forward.</p>
+
+  <h3>The Four-Tier Rebuild Plan</h3>
+  <table class="comparison-table">
+    <thead>
+      <tr><th>Tier</th><th>Phase</th><th>Work</th><th>Expected result</th></tr>
+    </thead>
+    <tbody>
+      <tr class="brand-col"><td><span class="pill">Tier 1</span> Foundations</td><td>Phase 1</td><td>Turn on caching. Verify GA4 and Search Console. Investigate indexation gap. Add site-wide schema (Organization, Article, Product, FAQ, BreadcrumbList). Resolve subdomain split. Run accessibility baseline.</td><td>Crawl efficiency restored. Measurement backbone in place. Indexation unlock.</td></tr>
+      <tr><td><span class="pill blue">Tier 2</span> Hygiene wins</td><td>Phase 2</td><td>Add missing H1s. Rewrite title tags with buyer-benefit framing. Add alt text to every image. Rewrite homepage hero around operator outcomes. Add secondary CTA and product tour video. Qualify form fields.</td><td>SEO score 4→6. CRO score 6→8. Hero conversion rate lift.</td></tr>
+      <tr><td><span class="pill amber">Tier 3</span> Strategic rebuild</td><td>Phase 3</td><td>Five segment landing pages (PE home care, CCRC, AL, IL+rental retirement, for-profit SNF). Dedicated /evidence/ page. Homepage rebuilt around operator buyer. Two content hubs (grip strength biomarker, falls risk screening). Four commercial-term pages. Seven downloadable segment 1-pagers. ROI calculator.</td><td>Segment pages convert at 3× the current homepage rate. Seven new commercial keywords owned.</td></tr>
+      <tr><td><span class="pill amber">Tier 4</span> Compounding</td><td>Ongoing</td><td>Monthly CRO test cadence. One meaningful blog post every two weeks. Quarterly AI-search citation audit. Quarterly accessibility review. One new named case study per quarter.</td><td>Compounding organic growth, AI-search share of voice, champion enablement.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>The Segment Page Template</h3>
+  <p>Every segment page follows the same structure so production is fast and consistent: segment-specific outcome headline, "work to be done" framed in the buyer's language, "how Able Care helps" mapped to the five value pillars, proof (stats, named logo, segment-specific quote), ease of rollout and integrations, primary CTA ("Book a demo for [segment]") and secondary CTA ("Download the [segment] 1-pager").</p>
+
+  <div class="insight-callout">
+    <div class="insight-icon">!</div>
+    <div class="insight-text"><strong>The single highest-leverage change:</strong> five segment landing pages, built to one template, with one named customer outcome and one segment-specific CTA each. This single piece of work converts the sales motion from "send them to the homepage and hope" into "send them to a page written for them."</div>
+  </div>
+</section>
+
+<!-- SEO AUDIT -->
+<section id="seo-audit">
+  <h2>SEO Audit</h2>
+  <p>This section reproduces the full March 2026 SEO audit of able-care.co. The site scores <strong>4/10</strong>. The technical foundation is not broken, it is poorly configured, and the commercial pages that matter most to the 2026 strategy are effectively invisible to search.</p>
+
+  <h3>Headline Findings</h3>
+  <div class="insight-callout">
+    <div class="insight-icon">!</div>
+    <div class="insight-text"><strong>Overall score: 4/10.</strong> Six structural issues are suppressing organic performance today. None are expensive to fix. Most are mechanical. Together they are the single largest unlock on the site before any new content is written.</div>
+  </div>
+
+  <h3>1. Zero Server-Side Caching</h3>
+  <p>Every page on able-care.co currently returns <code>no-store, no-cache</code> headers. This means the browser and any intermediate CDN must re-fetch the page from origin on every request. The practical effects are three-fold: Core Web Vitals (LCP, INP, TTFB) all suffer because nothing is served from the edge; Google's crawl budget is wasted refetching pages it has already seen, which compounds indexation problems; and the site feels slow to human visitors, which feeds both bounce rate and ranking. The fix is a LiteSpeed or Hostinger cache configuration change. Static assets should be cached for months, HTML for at least 24 hours. This is the lowest-effort highest-payoff fix on the site.</p>
+
+  <h3>2. Zero Schema Markup Anywhere on the Site</h3>
+  <p>There is no Organization, Product, Article, FAQ, BreadcrumbList, or WebSite schema anywhere on able-care.co. This eliminates any chance of rich snippets in SERPs, removes Able Care from Google's knowledge graph entirely, and (critically in 2026) makes the site almost invisible to LLM-based search. ChatGPT, Perplexity, Claude, and Google AI Overviews preferentially cite pages with clear structured data because structured data is how they verify entity relationships. A basic site-wide schema rollout (Organization on the homepage, Article on every blog post, Product on the Solution pages, FAQ where applicable) is a one-day job with disproportionate payoff across both traditional and AI search.</p>
+
+  <h3>3. Missing H1 Tags on High-Value Commercial Pages</h3>
+  <p>The About page, the Solutions → Grip Strength page, and the Solutions → Able Assess page all ship without an H1. The Resources page has a truncated H1 that is effectively unusable. These are the four most commercially important pages on the site. Google uses H1 as a primary signal of what a page is about, and its absence on the Solution pages is the single biggest reason those pages do not rank for any commercial falls-screening keywords. The fix is adding one tag per page. It is a trivial change with a material impact.</p>
+
+  <h3>4. 60+ Images With Empty Alt Text on the Homepage Alone</h3>
+  <p>Every trust logo (Harvard, Johns Hopkins, Oxford, Mt Sinai, MD Anderson, Mass General), every certification badge (FDA, CE, ISO 27001, ISO 13485, HIPAA, GDPR), every product screenshot, and every hero image ships with an empty <code>alt</code> attribute. These are free ranking signals being thrown away, and the loss is disproportionately felt on exactly the images that would most support Able Care's credibility narrative. The fix is a two-hour copywriting pass. The SEO and accessibility payoff is permanent.</p>
+
+  <h3>5. Severe Indexation Gap (~36 Sitemapped URLs vs ~7 Indexed)</h3>
+  <p>The Yoast sitemap lists approximately 36 URLs. A <code>site:able-care.co</code> query in Google returns approximately 7. The gap is large enough that something structural is wrong. Likely causes include noindex tags left over from staging, canonical conflicts between the main site and the <code>resources.able-care.co</code> subdomain, thin or duplicate content being filtered by Google's quality algorithms, crawl blocks from the cache-header issue above, or an orphan pages problem where pages are not internally linked. The single most urgent SEO action on this site is to open Search Console, identify which pages are excluded and why, and fix the underlying cause. This is potentially the largest single unlock on the site — possibly 4× the current indexed footprint recovered with no new content.</p>
+
+  <h3>6. No Pillar or Hub Structure for Topical Authority</h3>
+  <p>The blog contains eight "Grip Strength and [condition] — The New Essential Biomarker" posts (diabetes, cardiovascular disease, cancer, sarcopenia, and so on) plus a hand-dynamometer guide. Each is a standalone post. None are linked into a central pillar page. This diffuses the topical authority that Google rewards for cluster-based content. Two pillar pages would consolidate the existing authority: a "Grip Strength as a Health Biomarker" hub linking to all eight condition posts, and a "Falls Risk Screening: The Complete Guide" hub linking to the TUG, gait speed, chair stand, and Able Assess content. Both can be structured for AI-search citation at the same time (clear definitions, sourced statistics, FAQ schema, named clinical authors).</p>
+
+  <h3>Secondary Findings</h3>
+  <p>The following issues are smaller individually but collectively shape the site's SEO posture and should be addressed as part of the hygiene pass:</p>
+  <ul>
+    <li><strong>Missing meta descriptions</strong> on four pages, with no canonical tags on the same four. Each is a two-minute fix.</li>
+    <li><strong>Title tags describe the product, not the query.</strong> "Grip Strength – Able Care" should be "Grip Strength Assessment for Clinical Teams | Able Care" — category + benefit, not just product name.</li>
+    <li><strong>TUG test cannibalisation.</strong> Two URLs target the same query (<code>/timed-up-and-go-test/</code> and <code>/blog/timed-up-and-go-test-tug-test/</code>). Consolidate or differentiate with explicit internal linking.</li>
+    <li><strong>Eight near-identical "Grip Strength and [condition]" titles.</strong> Same content pattern but query-aligned titles per condition.</li>
+    <li><strong>The <code>resources.able-care.co</code> subdomain is leaking authority.</strong> It appears in search results showing an error page. A 301 redirect to the main site recaptures the link equity and removes a bad user experience from SERPs.</li>
+    <li><strong>No <code>hreflang</code> implementation</strong> despite the site carrying both US and UK content. Confuses Google about which audience to serve and dilutes both.</li>
+    <li><strong>No internal search</strong> for a site with 25+ blog posts, which hurts engagement and dwell time.</li>
+    <li><strong>No XML sitemap for images or video</strong>, which matters for the image-rich clinical content.</li>
+  </ul>
+
+  <h3>Unclaimed Commercial Keywords</h3>
+  <p>Three commercial-intent phrases have almost no competition from commercial landing pages. The competition for these queries is currently dominated by CDC, MedlinePlus, and clinical journals, none of which are selling anything. Able Care could own this category with a modest content effort:</p>
+  <ul>
+    <li><strong>"digital falls screening"</strong> — zero commercial landing pages. A single 1,500-word page could rank.</li>
+    <li><strong>"fall prevention technology"</strong> — category term, thin commercial competition.</li>
+    <li><strong>"STEADI falls screening"</strong> — named after the CDC framework, high buyer intent, zero commercial pages.</li>
+    <li><strong>"SAFE Act falls screening"</strong> — newly relevant due to federal legislation, zero competition, buying season starting.</li>
+    <li><strong>Segment long-tails</strong> — "falls prevention for home care", "falls screening for assisted living", "falls risk assessment home health". High commercial intent, almost no competition in the landing-page category.</li>
+  </ul>
+
+  <h3>SEO Score Components</h3>
+  <table class="comparison-table">
+    <thead><tr><th>Component</th><th>Score</th><th>Reasoning</th></tr></thead>
+    <tbody>
+      <tr><td class="metric-label">Technical foundation</td><td>3/10</td><td>No caching, no schema, indexation gap</td></tr>
+      <tr><td class="metric-label">On-page optimisation</td><td>3/10</td><td>Missing H1s, empty alt text, weak title tags</td></tr>
+      <tr><td class="metric-label">Content depth</td><td>7/10</td><td>25 blog posts, clinical rigour, real topical seeds</td></tr>
+      <tr><td class="metric-label">Topical authority</td><td>4/10</td><td>Good raw material, no pillar structure</td></tr>
+      <tr><td class="metric-label">Commercial targeting</td><td>2/10</td><td>Zero commercial landing pages; category is unclaimed</td></tr>
+      <tr><td class="metric-label">AI-search readiness</td><td>2/10</td><td>No schema, no FAQ structure, not citation-ready</td></tr>
+      <tr><td class="metric-label"><strong>Overall</strong></td><td><strong>4/10</strong></td><td>Honest diagnosis, fully recoverable with focused hygiene work</td></tr>
+    </tbody>
+  </table>
+
+  <div class="insight-callout">
+    <div class="insight-icon">!</div>
+    <div class="insight-text"><strong>The single highest-leverage SEO move:</strong> fix the indexation gap. Recovering the ~29 sitemapped URLs that are not currently indexed is a 4× multiplier on the site's organic footprint with no new content. Everything else in this section is additive once that is done.</div>
+  </div>
+</section>
+
+<!-- CRO AUDIT -->
+<section id="cro-audit">
+  <h2>CRO Audit</h2>
+  <p>This section reproduces the full March 2026 CRO audit of able-care.co. The site scores <strong>6/10</strong>. The brand credibility is genuinely strong, but the site is optimised to educate a curious clinician rather than convert an operator buyer, and the conversion architecture offers a single high-commitment path ("Book a Demo") with no intermediate steps for the 99% of visitors who are not meeting-ready.</p>
+
+  <h3>Headline Findings</h3>
+  <div class="insight-callout">
+    <div class="insight-icon">!</div>
+    <div class="insight-text"><strong>Overall score: 6/10.</strong> The site does not fail any single test catastrophically. It fails a series of small-to-medium tests that collectively suppress conversion below what the credibility warrants. The fixes are cheap. The payoff is a site that converts at a rate consistent with how strong its trust signals actually are.</div>
+  </div>
+
+  <h3>1. The Hero Describes the Product, Not the Outcome</h3>
+  <p>The current hero reads "Standardized and Scalable Falls Risk Screening." It is accurate. It is also a description of the product, not the reason any buyer would care. A PE operator reading that headline has to translate "standardised and scalable" into "this might protect our NOI," and they will not do that translation on their own. The outcome-led alternative is something like "Cut preventable falls and the costs that come with them with a 5-minute screening any staff member can run." The difference is not cosmetic. The first version sells to a clinician. The second sells to the person with the budget. The 2026 strategy is selling to the second person.</p>
+
+  <h3>2. Single High-Commitment Conversion Path</h3>
+  <p>"Book a Demo" is the only way to engage with Able Care from the website. There is no secondary, lower-commitment path. Visitors who are not meeting-ready (which is 95%+ of site traffic on any B2B SaaS site) simply leave with no downstream hook. A secondary CTA — "Watch the 2-minute product tour," "Download the Home Care 1-pager," "See a sample report" — widens top-of-funnel capture from the current ~1% (demo-ready) to a realistic 8–15% (content-ready). That is an order-of-magnitude improvement in lead volume with no change to the sales motion.</p>
+
+  <h3>3. No Pricing Signal At All</h3>
+  <p>The site says nothing about price. In B2B healthcare, silence on price is not neutral — it is read as "too expensive to show." Corporate procurement teams disqualify vendors on exactly this signal before a demo is ever booked. The fix is not to publish a detailed price list; it is to publish a directional signal. "Starting from $X per site per month, contact us for a detailed quote" converts better than silence because it tells the buyer Able Care is in their range. Pricing pages in general are one of the highest-traffic pages on any B2B SaaS site and their absence is a known conversion drag.</p>
+
+  <h3>4. No Product Demo Video</h3>
+  <p>There is no video of the product in action anywhere on the site. For a sensor-plus-software product, video is the single highest engagement lever on the page. A 60–90 second clip showing a non-clinical staff member running the four measurements (grip, TUG, chair stand, gait) in five minutes would do more to communicate "easy to roll out" than any amount of copy. Video also lifts time-on-page, which feeds ranking, which compounds. The current absence is a large unforced error.</p>
+
+  <h3>5. Outcome Proof Is Missing</h3>
+  <p>No customer case studies. No named operator outcomes. No "reduced falls by X% in Y months" figures. No ROI numbers. For a product whose entire positioning rests on being data-driven, the absence of outcome data on the marketing site is a credibility hole. This is the single biggest CRO lever on the site. Even one named case study with one hard number would materially lift demo conversion rate. The commercial work behind this (interviewing a happy customer, getting approval for a quote and a number) is urgent regardless of any website work.</p>
+
+  <h3>6. Trust Content Buried in Carousels</h3>
+  <p>The trust, validation, regulatory, and security content — the genuinely elite material that should be front and centre — is currently distributed across four carousel slides that most visitors never click through. Carousel engagement rates are consistently under 10%. This means the Harvard, Johns Hopkins, and Oxford logos, and the FDA, ISO, and HIPAA badges, are being seen by a minority of visitors. Un-stacking the carousel into a scannable grid puts the credibility layer on screen for everyone.</p>
+
+  <h3>Secondary Findings</h3>
+  <ul>
+    <li><strong>Contact form has no qualifying fields.</strong> Organization type, role, number of sites or residents are not captured. Every demo request arrives un-qualified, wasting Paul and Dani's time and making the BDR handoff noisier than it needs to be.</li>
+    <li><strong>Form submission uses a generic thank-you page</strong> with no onward journey (no calendar link, no PDF download, no "while you wait, here is our most-read blog post"). Every form submission is a missed nurture opportunity.</li>
+    <li><strong>No exit-intent capture.</strong> Visitors who are about to leave are not offered anything (one-pager download, newsletter signup, "we'll email you the ROI calculator").</li>
+    <li><strong>No live chat or scheduling widget.</strong> Calendly-style instant booking converts at 2–3× the rate of form-then-wait.</li>
+    <li><strong>Navigation is product-first, not buyer-first.</strong> The main nav shows "Grip Strength" and "Able Assess" — product names. A buyer-first nav would lead with "Home Care," "Senior Living," "CCRC," "Evidence," "Pricing."</li>
+    <li><strong>No social proof near the CTA.</strong> The "Book a Demo" button has no testimonial, logo row, or stat next to it. Social proof within the conversion element itself is one of the most reliably replicated CRO findings in the literature.</li>
+    <li><strong>Mobile experience is functional but not optimised.</strong> The hero stacks awkwardly, the carousels do not work well on touch, and the primary CTA falls below the fold on most phones.</li>
+    <li><strong>Blog CTAs are generic.</strong> Every blog post ends with the same "Book a Demo" button. Contextual CTAs matched to the post topic (a TUG-test post should link to the TUG segment page, a CCRC post should link to the CCRC landing page) convert materially better.</li>
+  </ul>
+
+  <h3>CRO Score Components</h3>
+  <table class="comparison-table">
+    <thead><tr><th>Component</th><th>Score</th><th>Reasoning</th></tr></thead>
+    <tbody>
+      <tr><td class="metric-label">Brand and trust signals</td><td>9/10</td><td>Elite logos, real regulatory posture, credible thought leader</td></tr>
+      <tr><td class="metric-label">Value proposition clarity</td><td>5/10</td><td>Clinician-first framing, no operator business case</td></tr>
+      <tr><td class="metric-label">Conversion architecture</td><td>4/10</td><td>Single high-commitment CTA, no nurture layer</td></tr>
+      <tr><td class="metric-label">Outcome proof and evidence</td><td>3/10</td><td>Zero named case studies, no hard numbers</td></tr>
+      <tr><td class="metric-label">Pricing signal</td><td>2/10</td><td>Complete silence is read as "too expensive"</td></tr>
+      <tr><td class="metric-label">Form and nurture UX</td><td>5/10</td><td>Forms work but capture no qualifying data</td></tr>
+      <tr><td class="metric-label">Mobile experience</td><td>6/10</td><td>Functional, not optimised</td></tr>
+      <tr><td class="metric-label"><strong>Overall</strong></td><td><strong>6/10</strong></td><td>Strong raw material, thin conversion engineering</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Test Backlog</h3>
+  <p>Recommended test cadence once the foundation fixes are in: one A/B test per month, ranked by expected impact.</p>
+  <table class="comparison-table">
+    <thead><tr><th>Test</th><th>Hypothesis</th><th>Expected impact</th></tr></thead>
+    <tbody>
+      <tr><td class="metric-label">Outcome-led hero vs product-led hero</td><td>Outcome framing lifts PE and operator engagement</td><td>High</td></tr>
+      <tr><td class="metric-label">Dual CTA vs single "Book a Demo"</td><td>Low-commitment secondary captures 5–10× more visitors into the funnel</td><td>Very high</td></tr>
+      <tr><td class="metric-label">Video hero vs static hero</td><td>Video lifts engagement and time-on-page</td><td>High</td></tr>
+      <tr><td class="metric-label">Calendly instant booking vs form-then-email</td><td>Instant booking converts at 2–3× form rate</td><td>High</td></tr>
+      <tr><td class="metric-label">Pricing signal vs silence</td><td>Directional price range lifts qualified demos</td><td>Medium</td></tr>
+      <tr><td class="metric-label">Un-stacked trust grid vs carousel</td><td>Visible credibility lifts early-funnel trust</td><td>Medium</td></tr>
+      <tr><td class="metric-label">Qualifying form fields vs minimal form</td><td>Better lead quality outweighs slight volume drop</td><td>Medium</td></tr>
+      <tr><td class="metric-label">Contextual blog CTAs vs generic CTA</td><td>Topic-matched CTAs lift blog-to-demo conversion</td><td>Medium</td></tr>
+    </tbody>
+  </table>
+
+  <div class="insight-callout">
+    <div class="insight-icon">!</div>
+    <div class="insight-text"><strong>The single highest-leverage CRO move:</strong> add one named customer outcome with a hard number to the homepage. Everything else in this section is a percentage lift. That single addition changes the buyer's mental category from "maybe" to "proven." The commercial work to source it is urgent and is the bottleneck for most of the other recommendations here.</div>
+  </div>
+</section>
+
+<!-- CONVERSION FUNNEL -->
+<section id="conversion-funnel">
+  <h2>The Conversion Funnel</h2>
+  <p>The 2026 strategy is sales-led, which means the team has a working Stage 4 (Convert) but is under-supplied at every other stage of the funnel. The point of this section is to name the whole funnel, show which plan activities feed which stage, and then model what happens to revenue when conversion at each stage is lifted even modestly. The underlying insight is that small improvements at multiple stages compound multiplicatively, not additively. That compounding is the single strongest argument for investing in a full-funnel marketing function rather than adding more BDRs.</p>
+
+  <h3>The Five Stages</h3>
+  <div style="background: var(--bg-alt); border-radius: 12px; padding: 1.75rem 1rem; margin: 1.25rem 0;">
+    <svg viewBox="0 0 820 280" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto; font-family: 'DM Sans', sans-serif;">
+      <!-- Funnel bands -->
+      <polygon points="10,30 170,50 170,230 10,250" fill="#DCDCDC" stroke="#fff" stroke-width="2"/>
+      <polygon points="170,50 330,70 330,210 170,230" fill="#b4c0fc" stroke="#fff" stroke-width="2"/>
+      <polygon points="330,70 490,90 490,190 330,210" fill="#6e82fb" stroke="#fff" stroke-width="2"/>
+      <polygon points="490,90 650,110 650,170 490,190" fill="#1432FA" stroke="#fff" stroke-width="2"/>
+      <polygon points="650,110 810,130 810,150 650,170" fill="#00FAD2" stroke="#fff" stroke-width="2"/>
+
+      <!-- Stage numbers -->
+      <text x="90" y="130" text-anchor="middle" font-size="32" font-weight="700" fill="#191919">1</text>
+      <text x="250" y="130" text-anchor="middle" font-size="28" font-weight="700" fill="#191919">2</text>
+      <text x="410" y="130" text-anchor="middle" font-size="24" font-weight="700" fill="#fff">3</text>
+      <text x="570" y="135" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">4</text>
+      <text x="730" y="138" text-anchor="middle" font-size="16" font-weight="700" fill="#191919">5</text>
+
+      <!-- Stage labels -->
+      <text x="90" y="158" text-anchor="middle" font-size="14" font-weight="600" fill="#191919">ATTRACT</text>
+      <text x="250" y="156" text-anchor="middle" font-size="13" font-weight="600" fill="#191919">ENGAGE</text>
+      <text x="410" y="156" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">QUALIFY</text>
+      <text x="570" y="158" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">CONVERT</text>
+      <text x="730" y="158" text-anchor="middle" font-size="10" font-weight="600" fill="#191919">RETAIN</text>
+
+      <!-- Ownership bar -->
+      <rect x="10" y="10" width="320" height="14" fill="none" stroke="#64748B" stroke-width="1"/>
+      <text x="170" y="20" text-anchor="middle" font-size="9" font-weight="600" fill="#64748B">MARKETING OWNS</text>
+      <rect x="330" y="10" width="160" height="14" fill="none" stroke="#64748B" stroke-width="1"/>
+      <text x="410" y="20" text-anchor="middle" font-size="9" font-weight="600" fill="#64748B">MKTG + SALES</text>
+      <rect x="490" y="10" width="160" height="14" fill="none" stroke="#64748B" stroke-width="1"/>
+      <text x="570" y="20" text-anchor="middle" font-size="9" font-weight="600" fill="#64748B">SALES + MKTG</text>
+      <rect x="650" y="10" width="160" height="14" fill="none" stroke="#64748B" stroke-width="1"/>
+      <text x="730" y="20" text-anchor="middle" font-size="9" font-weight="600" fill="#64748B">CS + MKTG</text>
+
+      <!-- Foundation bar -->
+      <rect x="10" y="256" width="800" height="18" fill="#191919" rx="3"/>
+      <text x="410" y="269" text-anchor="middle" font-size="11" font-weight="600" fill="#00FAD2">FOUNDATION: Knowledge Base · Claims Library · Persona Cards</text>
+
+      <!-- Arrows from foundation up into funnel -->
+      <line x1="170" y1="256" x2="170" y2="240" stroke="#00FAD2" stroke-width="1.5"/>
+      <line x1="330" y1="256" x2="330" y2="220" stroke="#00FAD2" stroke-width="1.5"/>
+      <line x1="490" y1="256" x2="490" y2="200" stroke="#00FAD2" stroke-width="1.5"/>
+      <line x1="650" y1="256" x2="650" y2="180" stroke="#00FAD2" stroke-width="1.5"/>
+    </svg>
+  </div>
+
+  <h3>Activities That Feed Each Stage</h3>
+  <table class="comparison-table">
+    <thead>
+      <tr><th>Stage</th><th>Job</th><th>Activities from the plan</th><th>KPI</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="metric-label"><strong>1. Attract</strong></td><td>Fill the top of the funnel with the right buyers</td><td>15 Inbound content engine · 16 GEO / AI-search · 17 Market intel briefing · 13 LinkedIn for Paul and Dani · 14 Partner and connector marketing · 18 Events engine</td><td>Impressions, ranked keywords, AI-search citations</td></tr>
+      <tr><td class="metric-label"><strong>2. Engage</strong></td><td>Earn the click and hold attention</td><td>4 Segment 1-pager factory · 5 Segment landing pages · 6 Segment KB notes · 8 Case study production line · 3 Persona cards</td><td>Time on page, scroll depth, soft-conversion rate</td></tr>
+      <tr><td class="metric-label"><strong>3. Qualify</strong></td><td>Separate buyers from browsers and warm the lead</td><td>9 BDR enablement pack · 10 Account-specific outbound briefs · 7 Testimonial pipeline agent</td><td>Marketing qualified leads, BDR accept rate</td></tr>
+      <tr><td class="metric-label"><strong>4. Convert</strong></td><td>Close the deal and handoff to onboarding</td><td>11 RFP and procurement agent · 12 Sales conversation intelligence loop · 19 Onboarding content library</td><td>Demo-to-opportunity rate, close rate, time-to-first-use</td></tr>
+      <tr><td class="metric-label"><strong>5. Retain and expand</strong></td><td>Grow the account and generate advocacy</td><td>8 Case study production line · 17 Market intel briefing · 20 Strategy support and reporting pack</td><td>Net revenue retention, referred opportunities, NPS</td></tr>
+      <tr class="brand-col"><td class="metric-label"><strong>Foundation</strong></td><td>Feeds every stage with the same source of truth</td><td>1 Living knowledge base · 2 Claims library</td><td>Coverage of segments, currency of claims</td></tr>
+    </tbody>
+  </table>
+
+  <h3>The Compounding Model: Why Small Lifts Matter So Much</h3>
+  <p>The funnel is multiplicative, not additive. A 25% improvement at one stage is good. A 25% improvement at every stage is transformational, because each improvement operates on the output of the previous one. This is the mathematical argument for investing in a full-funnel marketing function rather than adding more headcount at the Convert stage, where the maths already runs against you.</p>
+  <p>The table below uses illustrative numbers to make the point. Assume Able Care drives 10,000 monthly visitors to the site (a realistic target after the content and GEO programmes), and assume an average annual contract value of $25,000 per closed deal. The baseline column uses conversion rates consistent with the current state of the site. The "10% lift per stage" column applies a modest 10% improvement to each stage. The "25% lift per stage" column applies a 25% improvement. The final row shows the annual revenue impact.</p>
+
+  <table class="comparison-table">
+    <thead>
+      <tr><th>Stage</th><th>Baseline rate</th><th>Baseline volume</th><th>+10% per stage</th><th>+25% per stage</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="metric-label">Monthly visitors (Attract)</td><td>—</td><td>10,000</td><td>11,000</td><td>12,500</td></tr>
+      <tr><td class="metric-label">Engaged visitors</td><td>5%</td><td>500</td><td>605 <span style="color:#00b89a;">(5.5%)</span></td><td>781 <span style="color:#00b89a;">(6.25%)</span></td></tr>
+      <tr><td class="metric-label">Marketing qualified leads</td><td>10%</td><td>50</td><td>67 <span style="color:#00b89a;">(11%)</span></td><td>98 <span style="color:#00b89a;">(12.5%)</span></td></tr>
+      <tr><td class="metric-label">Sales qualified opportunities</td><td>40%</td><td>20</td><td>29 <span style="color:#00b89a;">(44%)</span></td><td>49 <span style="color:#00b89a;">(50%)</span></td></tr>
+      <tr><td class="metric-label">Closed deals</td><td>20%</td><td>4.0</td><td>6.4 <span style="color:#00b89a;">(22%)</span></td><td>12.2 <span style="color:#00b89a;">(25%)</span></td></tr>
+      <tr class="brand-col"><td class="metric-label"><strong>Deals per month</strong></td><td>—</td><td><strong>4.0</strong></td><td><strong>6.4</strong></td><td><strong>12.2</strong></td></tr>
+      <tr class="brand-col"><td class="metric-label"><strong>Annual revenue @ $25k ACV</strong></td><td>—</td><td><strong>$1.20M</strong></td><td><strong>$1.92M</strong> <span style="color:#00b89a;">(+60%)</span></td><td><strong>$3.66M</strong> <span style="color:#00b89a;">(+205%)</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="insight-callout">
+    <div class="insight-icon">!</div>
+    <div class="insight-text"><strong>The compounding headline:</strong> a 10% improvement at each stage delivers a 60% revenue lift. A 25% improvement at each stage more than triples revenue. Neither requires a breakthrough at any single point, only steady pressure at every stage. This is only possible with a full-funnel marketing function. Adding BDRs lifts Stage 3 and Stage 4 alone and misses the compounding.</div>
+  </div>
+
+  <h3>Where Each Activity Bites Hardest</h3>
+  <p>Not every plan activity moves every stage equally. The table below shows which stage each of the twenty activities has the biggest effect on, and why it matters. This is how the investment case is made to Paul and Dani when they ask "which of these twenty do we do first?". The answer depends on which stage is most broken today. On the current state of the Able Care site, Stages 1 and 2 are the biggest constraints, which is why the Segment Content Engine and the Inbound workflow appear so often below.</p>
+
+  <table class="comparison-table">
+    <thead>
+      <tr><th>Activity</th><th>Primary stage</th><th>Secondary stage</th><th>Modelled impact</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="metric-label">1 Living knowledge base</td><td>Foundation</td><td>All</td><td>Enabler. No direct lift on its own; unlocks everything else.</td></tr>
+      <tr><td class="metric-label">2 Claims library</td><td>Foundation</td><td>Qualify, Convert</td><td>Enabler. Lifts close rate by removing procurement friction.</td></tr>
+      <tr><td class="metric-label">3 Persona cards</td><td>Engage</td><td>Qualify</td><td>Lifts time on page and BDR accept rate.</td></tr>
+      <tr><td class="metric-label">4 Segment 1-pagers</td><td>Engage</td><td>Qualify</td><td>Soft-conversion lift of 3–5× where deployed.</td></tr>
+      <tr><td class="metric-label">5 Segment landing pages</td><td>Engage</td><td>Attract</td><td>Highest single lift on Stages 1 and 2 combined.</td></tr>
+      <tr><td class="metric-label">6 Segment KB notes</td><td>Foundation</td><td>Engage</td><td>Enabler for 4 and 5.</td></tr>
+      <tr><td class="metric-label">7 Testimonial pipeline</td><td>Qualify</td><td>Convert</td><td>Lifts close rate 10–25% per named case study on the page.</td></tr>
+      <tr><td class="metric-label">8 Case study production</td><td>Engage</td><td>Convert, Retain</td><td>Lifts both demo conversion and expansion pipeline.</td></tr>
+      <tr><td class="metric-label">9 BDR enablement pack</td><td>Qualify</td><td>Convert</td><td>Lifts BDR accept rate and meeting book rate.</td></tr>
+      <tr><td class="metric-label">10 Account briefs</td><td>Qualify</td><td>Convert</td><td>Lifts top-down outreach response rate 3–5×.</td></tr>
+      <tr><td class="metric-label">11 RFP agent</td><td>Convert</td><td>—</td><td>Lifts close rate on enterprise deals materially.</td></tr>
+      <tr><td class="metric-label">12 Sales conversation intel</td><td>Convert</td><td>Foundation</td><td>Closes the loop that keeps every other activity sharp.</td></tr>
+      <tr><td class="metric-label">13 LinkedIn content engine</td><td>Attract</td><td>Engage</td><td>Warms accounts before outbound; lifts Stage 1 and 3 both.</td></tr>
+      <tr><td class="metric-label">14 Partner marketing</td><td>Attract</td><td>Qualify</td><td>Cheapest way to reach otherwise-unreachable accounts.</td></tr>
+      <tr><td class="metric-label">15 Inbound content engine</td><td>Attract</td><td>Engage</td><td>The long-game compounder for Stage 1.</td></tr>
+      <tr><td class="metric-label">16 GEO / AI-search</td><td>Attract</td><td>Engage</td><td>The next-frontier Stage 1 channel.</td></tr>
+      <tr><td class="metric-label">17 Market intel briefing</td><td>Attract</td><td>Retain</td><td>Feeds Stage 1 content and Stage 5 expansion signals.</td></tr>
+      <tr><td class="metric-label">18 Events engine</td><td>Attract</td><td>Qualify</td><td>High-quality Stage 1 source with Stage 3 velocity.</td></tr>
+      <tr><td class="metric-label">19 Onboarding content</td><td>Convert</td><td>Retain</td><td>Shortens time-to-value and lifts NRR.</td></tr>
+      <tr><td class="metric-label">20 Reporting pack</td><td>All</td><td>—</td><td>Meta. Tells leadership what is working and where to invest next.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="insight-callout">
+    <div class="insight-icon">!</div>
+    <div class="insight-text"><strong>The strategic read:</strong> today, every point of failure on the Able Care funnel is upstream of the salesperson. The team has invested in the Convert stage (Paul, Dani, BDRs, a working product) but has no Attract layer, almost no Engage layer, and a thin Qualify layer. This is why the strategy asks marketing for 1-pagers and inbound plans in the first place — the team can feel the shape of the gap even if the funnel has not been named explicitly. Naming it, as this section does, makes the investment case unambiguous.</div>
+  </div>
+</section>
+
+<!-- AI INITIATIVES -->
+<section id="ai-initiatives">
+  <h2>AI Initiatives — Twelve Plays</h2>
+
+  <p>The 2026 strategy is ambitious relative to the size of the team. Seven segment 1-pagers, a content cadence, per-account outbound briefs, conversation intelligence, an RFP engine, and an onboarding assistant are not realistic at current manual velocity. AI is the only way to hit that surface area without hiring a content team. This section lays out twelve initiatives, each tied to a commercial lever from the strategy document rather than to "AI for AI's sake."</p>
+
+  <h3>Marketing Acceleration</h3>
+  <div class="init-grid">
+    <div class="init-card">
+      <h4>1. Segment content factory</h4>
+      <div class="meta-row"><span class="pill">High impact</span><span class="pill blue">Low effort</span></div>
+      <p>A Claude workflow that takes the master value framing and generates tailored 1-pagers, email sequences, LinkedIn posts, and landing page copy per segment and persona. Directly solves the "two 1-pagers ASAP" ask and scales to the remaining five segments within weeks.</p>
+    </div>
+    <div class="init-card">
+      <h4>2. Claims guardrail library</h4>
+      <div class="meta-row"><span class="pill">High impact</span><span class="pill blue">Low effort</span></div>
+      <p>Every AI draft passes through a structured fact-check prompt that cross-references an approved claims library. Stops hallucinated statistics from reaching regulated buyers. Non-negotiable for a health-tech brand.</p>
+    </div>
+    <div class="init-card">
+      <h4>3. Brand-voice assistant</h4>
+      <div class="meta-row"><span class="pill">Medium impact</span><span class="pill blue">Low effort</span></div>
+      <p>A custom GPT trained on the Able Care brand guidelines that every team member uses for drafting. Eliminates voice drift as output volume grows 5×.</p>
+    </div>
+    <div class="init-card">
+      <h4>4. Case study production pipeline</h4>
+      <div class="meta-row"><span class="pill">High impact</span><span class="pill blue">Low effort</span></div>
+      <p>AI-assisted transcription and drafting on champion interviews. Turns a 30-minute customer conversation into a brand-voiced testimonial, quote card, and long-form case study within a day.</p>
+    </div>
+  </div>
+
+  <h3>Sales Acceleration</h3>
+  <div class="init-grid">
+    <div class="init-card">
+      <h4>5. Account intelligence briefs</h4>
+      <div class="meta-row"><span class="pill">High impact</span><span class="pill amber">Medium effort</span></div>
+      <p>Before every Paul or Dani top-down outreach, an AI agent produces a one-page brief: corporate structure, PE sponsor thesis, recent M&amp;A, likely KPIs, relevant value-framing lines, recommended opening hook. Turns persona tables into live per-account ammunition.</p>
+    </div>
+    <div class="init-card">
+      <h4>6. Conversation intelligence</h4>
+      <div class="meta-row"><span class="pill">High impact</span><span class="pill amber">Medium effort</span></div>
+      <p>Discovery calls through a recording plus summarisation pipeline to auto-populate the CRM, surface objections, and feed a library of real-world talk tracks per segment. Becomes institutional memory over time.</p>
+    </div>
+    <div class="init-card">
+      <h4>7. MCO vendor-questionnaire engine</h4>
+      <div class="meta-row"><span class="pill">Medium impact</span><span class="pill amber">Medium effort</span></div>
+      <p>A living knowledge base that drafts MLTSS preferred-vendor-list responses in hours rather than weeks. Real moat for a small team trying to win 24-state HCBS contracts.</p>
+    </div>
+    <div class="init-card">
+      <h4>8. Pipeline scoring</h4>
+      <div class="meta-row"><span class="pill">Medium impact</span><span class="pill blue">Low effort</span></div>
+      <p>Lightweight LLM layer over the CRM that ranks deals by fit against the PE-backed, multi-site corporate ICP. Focuses Paul and Dani's scarce top-down bandwidth.</p>
+    </div>
+  </div>
+
+  <h3>Customer &amp; Product-Adjacent</h3>
+  <div class="init-grid">
+    <div class="init-card">
+      <h4>9. In-product onboarding assistant</h4>
+      <div class="meta-row"><span class="pill">Medium impact</span><span class="pill red">High effort</span></div>
+      <p>A Claude-powered assistant inside the Able Assess portal answering "how do I run a screening?", "how do I interpret this score?", "what does Section GG require?". Reduces the onboarding burden the strategy explicitly calls out.</p>
+    </div>
+    <div class="init-card">
+      <h4>10. Smart care-plan narratives</h4>
+      <div class="meta-row"><span class="pill">High impact</span><span class="pill red">High effort</span></div>
+      <p>Combines an Able Assess score with AI-generated, CDC-aligned narrative recommendations a non-clinical staff member can hand to families or care managers. Differentiation at the product layer, not the marketing layer.</p>
+    </div>
+    <div class="init-card">
+      <h4>11. Family engagement summaries</h4>
+      <div class="meta-row"><span class="pill">Medium impact</span><span class="pill amber">Medium effort</span></div>
+      <p>Plain-language monthly progress notes ("Here's how Mom's mobility has changed") generated from screening history. Reinforces the "maintain independence" value prop and drives resident retention.</p>
+    </div>
+    <div class="init-card">
+      <h4>12. Portfolio falls-risk dashboard</h4>
+      <div class="meta-row"><span class="pill">High impact</span><span class="pill red">High effort</span></div>
+      <p>An AI rollup of individual screenings into portfolio-level insights for PE operators and corporate COOs. Turns Able Assess from a per-resident tool into an enterprise analytics product. Natural ACV expansion path.</p>
+    </div>
+  </div>
+
+  <h3>Phased Sequencing</h3>
+  <table class="comparison-table">
+    <thead>
+      <tr><th>Phase</th><th>Initiatives</th><th>Deliverable</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="metric-label">Phase 1</td><td>1, 2, 3</td><td>Brand-voice assistant live, claims guardrail library operational, two urgent 1-pagers shipped, draft of remaining five segment 1-pagers.</td></tr>
+      <tr><td class="metric-label">Phase 2</td><td>4, 5, 8</td><td>Account briefs for top 50 PE home care and top 25 corporate senior living targets. Personalised outbound sequences live. First three case studies in production.</td></tr>
+      <tr><td class="metric-label">Phase 3</td><td>6, 7, 11</td><td>Conversation intelligence rollout. MCO questionnaire knowledge base seeded. Family engagement summary prototype in pilot with one customer.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="insight-callout">
+    <div class="insight-icon">!</div>
+    <div class="insight-text"><strong>Risk and guardrail:</strong> healthcare-adjacent positioning means hallucinated clinical claims are the single biggest AI risk. Every AI output touching efficacy, reimbursement, or regulatory language passes through the claims library before publication. PHI never enters a third-party LLM without a BAA in place. The brand-voice assistant and the review checklist address brand drift as a secondary risk.</div>
+  </div>
+</section>
+
+<!-- SEO & GEO -->
+<section id="seo-geo">
+  <h2>SEO &amp; GEO</h2>
+
+  <h3>Strategic SEO</h3>
+  <p>Two opportunities dominate the SEO picture for Able Care. The first is an indexation recovery; the second is a commercial-keyword land grab.</p>
+
+  <h4>Indexation recovery</h4>
+  <p>The SEO audit found ~36 URLs in the sitemap but only ~7 in Google's index. That is a red flag severe enough to be the single largest organic unlock on the site before any new content is written. Week one should include a Search Console review of the excluded pages and the underlying cause (noindex tags, canonical conflicts, thin content, crawl blocks, or cache headers). Once the gap is understood, the fix is usually mechanical.</p>
+
+  <h4>Commercial-keyword land grab</h4>
+  <p>Several high-commercial-intent terms are currently unclaimed at the commercial-landing-page level. Competition on these terms is dominated by CDC pages, MedlinePlus, and clinical journal summaries — not commercial vendors. A focused set of four pages claims ground no-one else is fighting for:</p>
+  <table class="comparison-table">
+    <thead>
+      <tr><th>Target keyword / phrase</th><th>Intent</th><th>Recommended page</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="metric-label">digital falls screening</td><td>Commercial</td><td>/digital-falls-screening/</td></tr>
+      <tr><td class="metric-label">fall prevention technology</td><td>Commercial / research</td><td>/fall-prevention-technology/</td></tr>
+      <tr><td class="metric-label">STEADI falls screening</td><td>Clinical / commercial bridge</td><td>/steadi-falls-screening/</td></tr>
+      <tr><td class="metric-label">SAFE Act falls screening</td><td>Regulatory / commercial</td><td>/safe-act-falls-screening/</td></tr>
+      <tr><td class="metric-label">falls prevention for home care</td><td>Segment + commercial</td><td>/solutions/home-care/</td></tr>
+      <tr><td class="metric-label">falls screening for assisted living</td><td>Segment + commercial</td><td>/solutions/assisted-living/</td></tr>
+      <tr><td class="metric-label">falls risk assessment home health</td><td>Segment + commercial</td><td>/solutions/home-health/</td></tr>
+    </tbody>
+  </table>
+
+  <h4>Content hub consolidation</h4>
+  <p>The existing 25-post content library is strong but diffuse. Eight "Grip Strength and [condition]" posts share nearly identical titles and cannibalise each other. Two hub pages resolve this: one on grip strength as a health biomarker (consolidating the eight condition posts and the hand dynamometer guide), and one on falls risk screening as a complete guide (consolidating TUG, gait speed, chair stand, and Able Assess content). Both hubs should be structured for AI citation (clear definitions near the top, FAQ section with FAQ schema, named author with clinical credentials).</p>
+
+  <h3>Technical SEO</h3>
+  <details class="detail-panel">
+    <summary>Technical findings (collapsible detail)</summary>
+    <div class="detail-content">
+      <p><strong>Caching.</strong> Every page currently returns <code>no-store, no-cache</code>. This is suppressing Core Web Vitals and crawl efficiency. Configure LiteSpeed / Hostinger so static assets are cached for months and HTML for at least 24 hours.</p>
+      <p><strong>Schema markup.</strong> Zero schema anywhere on the site. Even a basic rollout (Organization on homepage, Article on every blog post, Product on Solution pages, FAQ where applicable, BreadcrumbList site-wide) meaningfully improves rich-snippet eligibility and AI-search citation probability.</p>
+      <p><strong>H1 hygiene.</strong> About, Solutions → Grip Strength, and Solutions → Able Assess are missing H1s. Resources has a truncated H1. These are the most commercially important pages on the site and they are structurally invisible to search.</p>
+      <p><strong>Image alt text.</strong> 60+ images on the homepage alone have empty alt attributes, including every elite trust logo. This is two hours of work with disproportionate SEO and accessibility upside.</p>
+      <p><strong>Title tags.</strong> Every title should include a buyer-relevant benefit or category term, not just the product name. "Grip Strength – Able Care" should become "Grip Strength Assessment for Clinical Teams | Able Care."</p>
+      <p><strong>Meta descriptions and canonicals.</strong> Four pages lack meta descriptions; the same four lack canonicals. Both are one-hour fixes.</p>
+      <p><strong>Cannibalisation.</strong> /timed-up-and-go-test/ and /blog/timed-up-and-go-test-tug-test/ should be consolidated or differentiated with explicit canonicalisation and cross-linking.</p>
+      <p><strong>Subdomain split.</strong> resources.able-care.co is splitting domain authority. 301-redirect to the main site and canonicalise the content.</p>
+    </div>
+  </details>
+
+  <h3>GEO (Generative Engine Optimisation)</h3>
+  <p>A non-trivial share of 2026 B2B healthcare research now starts in ChatGPT, Perplexity, Google AI Overviews, and Claude. The current site is not structured to be cited by LLMs: no schema, thin Q&amp;A structure, no "who / what / for whom / how much / what outcomes" at the top of pages. Able Care can punch above its weight in AI search with relatively little effort because the authoritative signals (Harvard, Johns Hopkins, CDC alignment, regulatory posture) are already in place and just need to be surfaced in structured form.</p>
+  <p>The recommended programme: test 15 buyer-language queries monthly across ChatGPT, Claude, and Perplexity ("best falls risk assessment for assisted living", "how do PE-backed home care operators reduce liability", "what is SAFE Act falls screening"), record which brands are cited, and publish one "definitive answer" page per quarter aimed specifically at closing the biggest gap. This is a direct extension of AI initiative #11 in the previous section.</p>
+</section>
+
+<!-- SWOT -->
+<section id="swot">
+  <h2>SWOT Summary</h2>
+
+  <div class="swot-grid">
+    <div class="swot-cell swot-strengths">
+      <h4>Strengths</h4>
+      <ul>
+        <li>Academic credential stack (Harvard, Johns Hopkins, Oxford, Mount Sinai, MD Anderson, Mass General) that a competitor would need years to replicate</li>
+        <li>Comprehensive regulatory posture: FDA, CE, ISO 27001, ISO 13485, IEC 60601, HIPAA, GDPR</li>
+        <li>Only player bundling grip + TUG + CTS + gait in a single five-minute workflow</li>
+        <li>Non-clinical usability — the single biggest PMF lever for home care</li>
+        <li>2022 World Guidelines alignment and CDC STEADI anchoring</li>
+        <li>A credible longevity-adjacent thought-leadership angle</li>
+        <li>A deep 25-post content library with real clinical references</li>
+      </ul>
+    </div>
+    <div class="swot-cell swot-weaknesses">
+      <h4>Weaknesses</h4>
+      <ul>
+        <li>Zero buyer-segment landing pages on the website</li>
+        <li>Clinician-first messaging on an operator-first buyer</li>
+        <li>Single high-commitment "Book a Demo" CTA with no downstream nurture hook</li>
+        <li>No evidence layer for champions — nothing to forward internally</li>
+        <li>Severe technical hygiene issues (no caching, no schema, missing H1s, missing alt text, indexation gap)</li>
+        <li>No published customer outcome numbers despite a regulated-buyer audience that asks for them</li>
+        <li>No pricing posture — silence reads as "expensive"</li>
+        <li>No accessibility story for an audience designing services for older adults</li>
+      </ul>
+    </div>
+    <div class="swot-cell swot-opportunities">
+      <h4>Opportunities</h4>
+      <ul>
+        <li>PE consolidation of home care concentrates the buyer universe — one corporate win propagates across dozens of franchises</li>
+        <li>Four unclaimed commercial keywords with no vendor competition at the landing-page layer</li>
+        <li>The top-right quadrant of the perceptual map (staff-wide usable + proactive) is vacant</li>
+        <li>State-level Medicaid MLTSS vendor lists in 24 states — a dedicated questionnaire engine opens a moat</li>
+        <li>AI-search visibility (ChatGPT, Claude, Perplexity) is an open frontier where academic credentials convert well</li>
+        <li>SAFE Act and Section GG regulatory pressure are moving falls screening toward compliance-adjacent</li>
+        <li>A credible ROI calculator doubles as a sales tool and a lead magnet</li>
+      </ul>
+    </div>
+    <div class="swot-cell swot-threats">
+      <h4>Threats</h4>
+      <ul>
+        <li>SafelyYou and Linus Health are better funded and can outspend Able Care on brand and events</li>
+        <li>Consumer PERS brands (Lifeline, ADT, Medical Guardian) may confuse operator buyers who conflate detection with screening</li>
+        <li>Hallucinated clinical claims in AI-generated content are a real reputational and regulatory risk</li>
+        <li>High staff turnover in home care means any friction in onboarding is amplified across every site</li>
+        <li>PE ownership changes at target accounts reset sales cycles</li>
+        <li>AI-search ecosystem is still volatile — citation patterns can shift without warning</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- STRATEGIC IMPLICATIONS -->
+<section id="strategic-implications">
+  <h2>Strategic Implications</h2>
+
+  <p>The audit points to a single high-confidence conclusion: Able Care's biggest bottleneck in 2026 is not product, credentials, or the quality of the strategy. It is the execution surface between the strategy and the buyer. Every recommendation in this report is a different way of widening that surface. The summary below translates those recommendations into three phases, three leadership decisions, and a horizon view.</p>
+
+  <h3>The Phased Sprint</h3>
+  <div class="phase-grid">
+    <div class="phase-card p1">
+      <span class="phase-badge">Phase 1</span>
+      <h4 class="phase-title">Unblock Discovery</h4>
+      <ul>
+        <li>Turn on caching and resolve the indexation gap</li>
+        <li>Verify Search Console and GA4</li>
+        <li>Ship site-wide schema and fix missing H1s and alt text</li>
+        <li>Resolve the <code>resources.able-care.co</code> subdomain split</li>
+        <li>Launch the brand-voice assistant and claims library</li>
+        <li>Ship the two urgent segment 1-pagers</li>
+      </ul>
+      <p class="phase-outcome">Outcome: crawl efficiency restored, measurement backbone in place, first segment assets shipped.</p>
+    </div>
+    <div class="phase-card p2">
+      <span class="phase-badge">Phase 2</span>
+      <h4 class="phase-title">Rebuild and Launch</h4>
+      <ul>
+        <li>Rewrite the homepage around the operator buyer</li>
+        <li>Launch three segment pages (PE home care, CCRC, corporate AL)</li>
+        <li>Stand up the AI account-intelligence brief pipeline</li>
+        <li>Ship the first three case studies from the production line</li>
+        <li>Add the secondary CTA and embed the product tour video</li>
+      </ul>
+      <p class="phase-outcome">Outcome: SEO score 4→6, CRO score 6→8, qualified pipeline lift.</p>
+    </div>
+    <div class="phase-card p3">
+      <span class="phase-badge">Phase 3</span>
+      <h4 class="phase-title">Compound</h4>
+      <ul>
+        <li>Launch the remaining segment pages (rental IL/AL, for-profit SNF)</li>
+        <li>Ship the <code>/evidence/</code> page and two content hubs</li>
+        <li>Publish the four commercial-keyword landing pages</li>
+        <li>Roll out conversation intelligence to discovery calls</li>
+        <li>Seed the MCO vendor-questionnaire knowledge base</li>
+        <li>Start the monthly GEO citation audit</li>
+      </ul>
+      <p class="phase-outcome">Outcome: compounding organic growth, expansion pipeline, AI-search share of voice.</p>
+    </div>
+  </div>
+
+  <h3>Three Decisions Leadership Needs to Make</h3>
+  <div class="decision-grid">
+    <div class="decision-card">
+      <div class="decision-icon">$</div>
+      <h4>Pricing Posture</h4>
+      <p>Publish a starting-from figure, publish a range, or stay silent. This affects the entire funnel and should be decided before the homepage rewrite, not after.</p>
+    </div>
+    <div class="decision-card">
+      <div class="decision-icon">◎</div>
+      <h4>US vs UK Positioning</h4>
+      <p>The 2026 strategy is US-first but the current site is hreflang-ambiguous. Commit to a <code>/us/</code> and <code>/uk/</code> split or pick one and redirect the other.</p>
+    </div>
+    <div class="decision-card">
+      <div class="decision-icon">★</div>
+      <h4>First Named Customer</h4>
+      <p>The evidence layer cannot ship without one named customer willing to be quoted with a number. Treat this as the single most urgent customer-success task of the quarter.</p>
+    </div>
+  </div>
+
+  <h3>The Horizon</h3>
+  <p>If the phased sprint lands, Able Care shifts from being a credible niche brand into being the default answer when a PE operator asks "what is our falls-prevention stack?" The four outcomes below are the specific shape of that shift.</p>
+  <div class="horizon-grid">
+    <div class="horizon-stat">
+      <span class="stat-big">7–10</span>
+      <span class="stat-label">Commercial keywords owned that competitors are not fighting for</span>
+    </div>
+    <div class="horizon-stat">
+      <span class="stat-big">3–5×</span>
+      <span class="stat-label">Lift in Paul and Dani's top-down outreach response rate</span>
+    </div>
+    <div class="horizon-stat">
+      <span class="stat-big">1 / 2 wks</span>
+      <span class="stat-label">Content factory producing a meaningful piece on autopilot</span>
+    </div>
+    <div class="horizon-stat">
+      <span class="stat-big">ACV ↑</span>
+      <span class="stat-label">Expansion path from per-resident to per-portfolio pricing</span>
+    </div>
+  </div>
+
+  <div class="insight-callout">
+    <div class="insight-icon">!</div>
+    <div class="insight-text"><strong>Bottom line:</strong> Able Care has already done the hard parts. The credentials are real, the product is real, the market is real, the strategy is sound. The remaining work is execution surface, and it is buildable in three phases. This audit recommends sprinting.</div>
+  </div>
+</section>
+
+<section id="services-plan">
+  <h2>Marketing Services Plan</h2>
+  <p>This section pulls together the twenty activities we believe Able Care needs from an AI marketing specialist, and organises them into logical workflows rather than a flat to-do list. It is written to sit alongside the <em>Falls Prevention Commercialization Strategy 2026</em> and support it directly. Every activity is tied to a specific objective from that document. No dates are attached. Sequencing is described in terms of dependencies, so the work can slot into whatever working pattern is agreed.</p>
+
+  <h3>How to read this plan</h3>
+  <p>The twenty activities cluster naturally into seven workflows. Each workflow is a small system: one activity produces an asset, which feeds the next activity, which feeds the next. A single piece of research (for example, a CCRC buyer interview) can cascade through a workflow and produce a segment page, a one-pager, a LinkedIn post, a BDR email template, and an entry in the knowledge base without ever being re-researched. That compounding leverage is the reason these activities belong in workflows rather than as isolated deliverables.</p>
+
+  <h3>Workflow 1: Foundation — The Corporate Brain</h3>
+  <p><strong>Strategic objective:</strong> the entire 2026 plan. The strategy describes fifteen to twenty market segments, seven priority sub-segments, and multiple buyer personas. None of the marketing motions it asks for can be produced consistently without a shared source of truth.</p>
+  <p><strong>Logical flow:</strong> build the knowledge base, populate it with claims and personas, and then treat it as the single input for every downstream activity. The knowledge base is best thought of as a corporate brain — every segment, competitor, persona, proof point, objection, and customer quote as an interlinked note. Each note is queryable by AI. Each is reachable from every other. The graph below is a real snapshot of the Able Care knowledge base already under construction: the dark central node is the Map of Content, and every lighter node is a note about a segment, competitor, framework, or piece of evidence that will feed the downstream workflows.</p>
+  <figure style="margin: 1.5rem 0; text-align: center;">
+    <img src="brain-graph.png" alt="Able Care corporate brain — Obsidian knowledge base graph" style="max-width: 100%; height: auto; border: 1px solid var(--border); border-radius: 8px; background: #fff; padding: 1rem;">
+    <figcaption style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.75rem; font-style: italic;">The Able Care corporate brain. Every node is a note. Every edge is a relationship. Every downstream asset — 1-pagers, landing pages, LinkedIn posts, BDR scripts, RFP answers — is generated from the same underlying graph, which is how one piece of research turns into ten assets without re-researching.</figcaption>
+  </figure>
+  <div class="initiative-grid">
+    <div class="initiative-card">
+      <h4>1. Living knowledge base (Obsidian vault)</h4>
+      <p>Every competitor, segment, persona, objection, proof point and customer quote as interlinked notes, queryable by AI, growing with every interview and sales call.</p>
+      <p><em>Tie:</em> supports the Executive Summary's "this document will be live."</p>
+    </div>
+    <div class="initiative-card">
+      <h4>2. Claims library with evidence links</h4>
+      <p>Every statistic, outcome and clinical claim with its source, strength of evidence and approved usage. Doubles as procurement response fuel and AI-search structured content.</p>
+      <p><em>Tie:</em> underwrites the value framing tables for every segment in the strategy.</p>
+    </div>
+    <div class="initiative-card">
+      <h4>3. Persona cards for the six core buyers</h4>
+      <p>ED, DON, PE operating partner, franchise owner, corporate VP Clinical, CCRC CEO. Pains, buying criteria, objections, proof they respond to. Checked against by every downstream asset.</p>
+      <p><em>Tie:</em> the strategy's segment value framing assumes a clear buyer picture; these cards make it explicit.</p>
+    </div>
+  </div>
+
+  <h3>Workflow 2: Segment Content Engine</h3>
+  <p><strong>Strategic objective:</strong> "Marketing: work with Dani to create 1-2 pagers for each market segment with messaging on value props," plus the seven priority sub-segments in the Executive Summary.</p>
+  <p><strong>Logical flow:</strong> design one reusable segment content model, then spin each segment through it. The same facts produce a 1-pager, a landing page, and outbound snippets. Update the model once, everything regenerates.</p>
+  <div class="initiative-grid">
+    <div class="initiative-card">
+      <h4>4. Segment 1-pager factory</h4>
+      <p>Seven branded PDFs (PE home care, independent multi-site, CCRC, IL, AL, SNF, HHA) generated from a shared content model and the claims library.</p>
+      <p><em>Tie:</em> direct answer to the Marketing work-to-be-done column.</p>
+    </div>
+    <div class="initiative-card">
+      <h4>5. Segment landing pages</h4>
+      <p>A /solutions/ path with a page for each Tier 1 segment. Fixes the gap where BDRs send PE CFOs to a homepage that requires them to translate "grip strength" into "NOI lever" on their own.</p>
+      <p><em>Tie:</em> every outbound motion in the strategy lands on a page that does not yet exist per segment.</p>
+    </div>
+    <div class="initiative-card">
+      <h4>6. Segment notes in the knowledge base</h4>
+      <p>A matching KB note for every segment chapter in the strategy. Mirrors the strategy's value framing and adds the evidence, personas and messaging that generate the 1-pagers and pages.</p>
+      <p><em>Tie:</em> gives the strategy a marketing-side counterpart so no line item is unsupported.</p>
+    </div>
+  </div>
+
+  <h3>Workflow 3: Proof Engine</h3>
+  <p><strong>Strategic objective:</strong> "Connect with key customer champions to develop testimonials."</p>
+  <p><strong>Logical flow:</strong> interview happy customers once, then atomise each interview into every asset type the downstream workflows need.</p>
+  <div class="initiative-grid">
+    <div class="initiative-card">
+      <h4>7. Testimonial pipeline agent</h4>
+      <p>Identifies champions in the CRM, drafts segment-specific interview questions, summarises transcripts, produces quote candidates ready for approval.</p>
+      <p><em>Tie:</em> operationalises the testimonial ask in the strategy.</p>
+    </div>
+    <div class="initiative-card">
+      <h4>8. Case study production line</h4>
+      <p>Three-tier output per interview: hero case study PDF, segment-specific one-pager update, LinkedIn carousel. One interview, three assets, one source.</p>
+      <p><em>Tie:</em> named case studies are the single most requested asset by enterprise senior living and PE-backed buyers in the strategy.</p>
+    </div>
+  </div>
+
+  <h3>Workflow 4: Sales Enablement</h3>
+  <p><strong>Strategic objective:</strong> "BDRs cold call targets bottom-up, Dani to review scripts," "Dani and Paul seek introductions to corporate HQs," "Opp to Close managed by Paul and Dani."</p>
+  <p><strong>Logical flow:</strong> package upstream assets into formats the sales team can use live in a deal, then feed what happens in those deals back into the knowledge base.</p>
+  <div class="initiative-grid">
+    <div class="initiative-card">
+      <h4>9. BDR enablement pack</h4>
+      <p>Cold-call scripts, email sequences, objection cards, and an "if they say X send Y" matrix per segment, grounded in the persona cards.</p>
+      <p><em>Tie:</em> directly supports "Dani to review scripts."</p>
+    </div>
+    <div class="initiative-card">
+      <h4>10. Account-specific outbound briefs</h4>
+      <p>An agent takes a named target from the BD list and produces a two-page brief: recent news, likely pains, relevant proof, recommended opener. Used before every Paul or Dani top-down outreach.</p>
+      <p><em>Tie:</em> supports "work with Jack on targeting, LinkedIn research and reach out."</p>
+    </div>
+    <div class="initiative-card">
+      <h4>11. RFP and procurement response agent</h4>
+      <p>Ingests an RFP or security questionnaire and drafts responses from the KB and claims library. Every enterprise deal hits one.</p>
+      <p><em>Tie:</em> unblocks the "Opp to Close" column owned by Paul and Dani.</p>
+    </div>
+    <div class="initiative-card">
+      <h4>12. Sales conversation intelligence loop</h4>
+      <p>Sales calls summarised, tagged for objections and buying signals, patterns fed back into the KB, claims library and persona cards. Without this loop the KB becomes stale within a quarter.</p>
+      <p><em>Tie:</em> operationalises "this document will be live."</p>
+    </div>
+  </div>
+
+  <h3>Workflow 5: Outbound and Social</h3>
+  <p><strong>Strategic objective:</strong> "Utilize LinkedIn for connections," "seek introductions via partners and connectors," "identify key connectors to work with to develop relationships in target segments."</p>
+  <p><strong>Logical flow:</strong> make Paul and Dani visible to their buyers before outbound lands, so cold touches arrive warmer. Build the partner and connector layer on top of that visibility.</p>
+  <div class="initiative-grid">
+    <div class="initiative-card">
+      <h4>13. LinkedIn content engine for Paul and Dani</h4>
+      <p>Weekly ghostwritten posts grounded in the KB, tuned to each founder's voice, sequenced to surface in front of BD-list target accounts. Reuses Segment and Proof Engine material.</p>
+      <p><em>Tie:</em> makes "utilize LinkedIn for connections" compounding rather than one-off.</p>
+    </div>
+    <div class="initiative-card">
+      <h4>14. Partner and connector marketing</h4>
+      <p>Co-branded content with PE operating partners, tech integrations, franchise HQs and trade associations. Each partner gets a co-created asset they are proud to share.</p>
+      <p><em>Tie:</em> supports the connector workstream named in the strategy.</p>
+    </div>
+  </div>
+
+  <h3>Workflow 6: Inbound and Discovery</h3>
+  <p><strong>Strategic objective:</strong> "Marketing: create plan for inbound lead generation."</p>
+  <p><strong>Logical flow:</strong> the KB already contains answers to the questions buyers are typing into Google and ChatGPT. This workflow publishes those answers in the formats that modern search rewards and monitors how they perform.</p>
+  <div class="initiative-grid">
+    <div class="initiative-card">
+      <h4>15. Inbound content engine</h4>
+      <p>Editorial calendar and steady production of SEO and GEO-optimised articles answering the questions operators actually ask. Grounded in the KB and claims library.</p>
+      <p><em>Tie:</em> direct answer to the inbound lead generation ask.</p>
+    </div>
+    <div class="initiative-card">
+      <h4>16. GEO / AI-search visibility programme</h4>
+      <p>Structured content, schema, citation-worthy claims, recurring audit of how Able Care appears in ChatGPT, Perplexity and Google AI Overviews.</p>
+      <p><em>Tie:</em> protects the inbound motion as search behaviour shifts.</p>
+    </div>
+    <div class="initiative-card">
+      <h4>17. Monthly market intel briefing</h4>
+      <p>Curated by an agent monitoring M&amp;A, PE activity, regulatory changes, clinical updates and competitor news. Published internally for Paul and Dani.</p>
+      <p><em>Tie:</em> supports the strategy's implicit need to stay ahead of a fast-consolidating market.</p>
+    </div>
+  </div>
+
+  <h3>Workflow 7: Operations and Reporting</h3>
+  <p><strong>Strategic objective:</strong> "Identify target events for 2026," "explore potential to streamline onboarding and customer support processes," and the need to prove marketing is supporting the plan.</p>
+  <div class="initiative-grid">
+    <div class="initiative-card">
+      <h4>18. Events engine</h4>
+      <p>Target event list, pre-event outreach, booth content, on-site lead capture, post-event nurture. Grounded in the same persona cards and segment content, so nothing is bespoke.</p>
+      <p><em>Tie:</em> supports Dani's events workstream.</p>
+    </div>
+    <div class="initiative-card">
+      <h4>19. Onboarding and staff-facing content library</h4>
+      <p>Short videos, quick-start guides and a staff-facing microsite so a new 1099 carer can run Able Assess on day one. Doubles as a sales proof point.</p>
+      <p><em>Tie:</em> supports "streamline onboarding and customer support processes with improved resources."</p>
+    </div>
+    <div class="initiative-card">
+      <h4>20. Strategy support and reporting pack</h4>
+      <p>Recurring report on inbound pipeline contribution, content performance, AI-search share of voice, case studies shipped, BD target coverage, and what the KB learned. The scorecard Paul and Dani can take to the board.</p>
+      <p><em>Tie:</em> closes the loop back to the strategy's Executive Summary.</p>
+    </div>
+  </div>
+
+  <h3>The website sits underneath all seven workflows</h3>
+  <p>The website rebuild is not a twenty-first activity. It is the surface every one of the seven workflows lands on. The Segment Content Engine publishes to it, the Proof Engine publishes case studies to it, the Inbound workflow drives traffic to it, the Onboarding library lives on it, and the reporting pack measures what happens on it. Treating the website as the nerve centre of the programme is what allows one knowledge base to power seven workflows. Treating it as a separate project would break that leverage.</p>
+
+  <h3>Sequencing, without dates</h3>
+  <p>No time commitments are attached, because the working pattern has not been agreed. The sequencing logic is about dependencies rather than deadlines. Workflow 1 (Foundation) unlocks everything, has to start first, and keeps going forever. Workflows 2 (Segment Content) and 3 (Proof) can start as soon as Foundation has enough in it to generate the first segment's assets, and run in parallel after that. Workflow 4 (Sales Enablement) starts as soon as the first segment's assets exist and is the fastest ROI workflow because it plugs directly into deals already in motion. Workflow 5 (Outbound and Social) runs in parallel with 4 and strengthens as the Proof Engine produces more case studies. Workflow 6 (Inbound and Discovery) is the slowest to compound but the most valuable long-term, and should start early even when its outputs feel small, because the content backlog is what AI search rewards. Workflow 7 (Operations and Reporting) is continuous once any of the above is live.</p>
+  <p>The most important thing about the sequencing is that it is a system, not a list. Work done in one workflow feeds the next. The knowledge base grows every time a customer is interviewed, a sales call is recorded, a market report is read, or a piece of content is published. That compounding is what makes an AI-powered marketing function cheaper and faster than a traditional content team, and it is what lets a small founder-led commercial org support the ambitions of the 2026 plan.</p>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Able Care — Marketing Audit &amp; Growth Plan</div>
+    <p>Prepared April 2026 from the Falls Prevention Commercialization Strategy 2026, the Able Care AI &amp; Website Plan, the Website Opportunity Analysis, the full SEO and CRO audits, a live walk-through of able-care.co, and public industry research. This document is confidential and intended for Able Care leadership.</p>
+  </div>
+</footer>
+
+<script>
+// Sticky nav active state
+const links = document.querySelectorAll('.sticky-nav .nav-link');
+const sections = document.querySelectorAll('main section');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    const top = s.offsetTop - 120;
+    if (scrollY >= top) current = s.id;
+  });
+  links.forEach(l => {
+    l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+  });
+});
+
+// Perceptual map chart
+const ctx = document.getElementById('perceptualChart').getContext('2d');
+new Chart(ctx, {
+  type: 'scatter',
+  data: {
+    datasets: [
+      {
+        label: 'Able Care',
+        data: [{ x: 0.85, y: 0.9, label: 'Able Care' }],
+        backgroundColor: '#1432FF',
+        borderColor: '#0020cc',
+        pointRadius: 12,
+        pointHoverRadius: 14
+      },
+      {
+        label: 'Competitors',
+        data: [
+          { x: 0.35, y: 0.25, label: 'SafelyYou' },
+          { x: 0.2,  y: 0.75, label: 'Linus Health' },
+          { x: 0.45, y: 0.65, label: 'VirtuSense' },
+          { x: 0.55, y: 0.55, label: 'Zibrio' },
+          { x: 0.7,  y: 0.4,  label: 'Nymbl Science' },
+          { x: 0.15, y: 0.6,  label: 'BioSensics' }
+        ],
+        backgroundColor: '#94A3B8',
+        borderColor: '#64748B',
+        pointRadius: 9
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { position: 'bottom' },
+      tooltip: {
+        callbacks: {
+          label: (ctx) => ctx.raw.label
+        }
+      }
+    },
+    scales: {
+      x: {
+        min: 0, max: 1,
+        title: { display: true, text: 'Clinician-only   →   Any staff member can run it', color: '#64748B' },
+        ticks: { display: false },
+        grid: { color: '#E2E8F0' }
+      },
+      y: {
+        min: 0, max: 1,
+        title: { display: true, text: 'Reactive (detection)   →   Proactive (screening)', color: '#64748B' },
+        ticks: { display: false },
+        grid: { color: '#E2E8F0' }
+      }
+    }
+  },
+  plugins: [{
+    afterDatasetsDraw(chart) {
+      const { ctx } = chart;
+      chart.data.datasets.forEach((ds, di) => {
+        const meta = chart.getDatasetMeta(di);
+        meta.data.forEach((pt, i) => {
+          const label = ds.data[i].label;
+          ctx.save();
+          ctx.font = '600 11px Inter, sans-serif';
+          ctx.fillStyle = di === 0 ? '#0A0F2E' : '#64748B';
+          ctx.textAlign = 'center';
+          ctx.fillText(label, pt.x, pt.y - 16);
+          ctx.restore();
+        });
+      });
+    }
+  }]
+});
+</script>
+
+</body>
+</html>
