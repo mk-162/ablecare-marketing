@@ -1069,28 +1069,85 @@
   .kb-library .asset-body pre code {
     background: transparent; border: none; color: inherit; padding: 0;
   }
-  .kb-library .pdf-list {
+  .kb-library .page-list {
     list-style: none; padding: 0; margin: 0.9rem 0 0.4rem;
   }
-  .kb-library .pdf-list li {
-    padding: 0.65rem 0.85rem;
+  .kb-library .page-list li {
+    padding: 0.7rem 0.9rem;
     border: 1px solid var(--border);
     border-radius: 6px;
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.4rem;
     background: var(--bg-alt);
+    transition: background 0.15s, border-color 0.15s;
   }
-  .kb-library .pdf-link {
+  .kb-library .page-list li:hover {
+    background: #eef1f6;
+    border-color: var(--blue);
+  }
+  .kb-library .page-link {
     color: var(--blue); font-weight: 600; text-decoration: none;
+    font-size: 0.95rem;
   }
-  .kb-library .pdf-link:hover { text-decoration: underline; }
-  .kb-library .pdf-filename {
+  .kb-library .page-link:hover { text-decoration: underline; }
+  .kb-library .page-link::after {
+    content: ' ↗'; font-size: 0.85em; opacity: 0.6;
+  }
+  .kb-library .page-hint {
     font-size: 0.75rem; color: var(--text-light);
-    font-family: 'JetBrains Mono', Menlo, Consolas, monospace;
     margin-left: 0.65rem;
   }
   .kb-library .muted-note {
     font-size: 0.8rem; color: var(--text-light);
     font-style: italic; margin: 0.6rem 0 0;
+  }
+
+  /* ===== JUMP NAV (in-page TOC at top of Library tabs) ===== */
+  .kb-library .jump-nav {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.1rem 1.25rem 1.2rem;
+    margin: 0 0 2.5rem;
+  }
+  .kb-library .jump-nav .jn-label {
+    font-size: 0.7rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 600;
+    margin-bottom: 0.7rem;
+  }
+  .kb-library .jump-nav .jn-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 0.9rem 1.5rem;
+  }
+  .kb-library .jn-block { line-height: 1.4; }
+  .kb-library .jn-title {
+    display: inline-block;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--brand);
+    text-decoration: none;
+    margin-bottom: 0.15rem;
+    border-bottom: 2px solid transparent;
+  }
+  .kb-library .jn-title:hover {
+    color: var(--blue);
+    border-bottom-color: var(--blue);
+  }
+  .kb-library .jn-items {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    line-height: 1.55;
+  }
+  .kb-library .jn-item {
+    color: var(--text-light);
+    text-decoration: none;
+  }
+  .kb-library .jn-item:hover {
+    color: var(--blue);
+    text-decoration: underline;
   }
 
   /* ===== KB TAB-SWITCHER STYLES (added for multi-doc shell) ===== */
@@ -4489,6 +4546,24 @@
     <p class="library-intro">Every content asset produced for the Outbound Plan 2026. Grouped by function. Click any heading in the sidebar to jump to that section.</p>
   </header>
 
+  <nav class="jump-nav" aria-label="Jump to section">
+    <div class="jn-label">Jump to</div>
+    <div class="jn-grid">
+  <div class="jn-block"><a href="#personas" class="jn-title">Segments and personas</a><div class="jn-items"><a href="#asset-personas" class="jn-item">Buyer personas</a> &nbsp;·&nbsp; <a href="#asset-segment-1pagers" class="jn-item">Segment one-pagers</a></div></div>
+  <div class="jn-block"><a href="#messaging" class="jn-title">Messaging and positioning</a><div class="jn-items"><a href="#asset-claims-library" class="jn-item">Claims Guardrail Library</a> &nbsp;·&nbsp; <a href="#asset-competitive-brief" class="jn-item">Competitive Positioning Brief</a></div></div>
+  <div class="jn-block"><a href="#website-copy" class="jn-title">Website copy</a><div class="jn-items"><a href="#asset-homepage-hero" class="jn-item">Homepage hero rewrite</a> &nbsp;·&nbsp; <a href="#asset-segment-landings" class="jn-item">Segment landing page copy (5 pages)</a> &nbsp;·&nbsp; <a href="#asset-evidence-page" class="jn-item">Evidence page copy</a> &nbsp;·&nbsp; <a href="#asset-commercial-keywords" class="jn-item">Commercial keyword landing pages (4 pages)</a></div></div>
+  <div class="jn-block"><a href="#content" class="jn-title">Content marketing</a><div class="jn-items"><a href="#asset-blog-posts" class="jn-item">Five blog posts</a> &nbsp;·&nbsp; <a href="#asset-hub-pages" class="jn-item">Two content hub pages</a></div></div>
+  <div class="jn-block"><a href="#outbound" class="jn-title">Outbound sales enablement</a><div class="jn-items"><a href="#asset-bdr-emails" class="jn-item">BDR cold email sequences</a> &nbsp;·&nbsp; <a href="#asset-account-intel" class="jn-item">Account intelligence brief template</a> &nbsp;·&nbsp; <a href="#asset-objections" class="jn-item">Objection handling cards</a></div></div>
+  <div class="jn-block"><a href="#campaigns" class="jn-title">Campaigns and calendars</a><div class="jn-items"><a href="#asset-linkedin-calendar" class="jn-item">LinkedIn content calendar (12 weeks)</a> &nbsp;·&nbsp; <a href="#asset-campaign-plan" class="jn-item">Q2 2026 campaign plan (90-day)</a></div></div>
+  <div class="jn-block"><a href="#proof" class="jn-title">Proof and case studies</a><div class="jn-items"><a href="#asset-case-studies" class="jn-item">Case study guide and Eskaton draft</a></div></div>
+  <div class="jn-block"><a href="#seo-geo" class="jn-title">SEO and GEO</a><div class="jn-items"><a href="#asset-seo-audit" class="jn-item">SEO audit and keyword strategy</a> &nbsp;·&nbsp; <a href="#asset-geo-baseline" class="jn-item">GEO baseline audit</a></div></div>
+  <div class="jn-block"><a href="#events-video" class="jn-title">Events and video</a><div class="jn-items"><a href="#asset-events-video" class="jn-item">Events, video briefs, onboarding</a></div></div>
+  <div class="jn-block"><a href="#build-specs" class="jn-title">Build specs</a><div class="jn-items"><a href="#asset-roi-calc" class="jn-item">ROI Calculator spec and build prompt</a></div></div>
+  <div class="jn-block"><a href="#pillar-evidence" class="jn-title">Pillar evidence content</a><div class="jn-items"><a href="#asset-white-paper" class="jn-item">Five-minute screening white paper</a></div></div>
+    </div>
+  </nav>
+
+
 <section id="personas" class="asset-section">
   <h2 class="section-heading">Segments and personas</h2>
 
@@ -4681,17 +4756,16 @@
 <section id="asset-segment-1pagers" class="asset-block">
   <h3 class="asset-title">Segment one-pagers</h3>
   <div class="asset-body">
-    <p>Seven two-page PDFs covering every target segment. Each one-pager follows the Able Care brand system and anchors value framing to operator KPIs for that segment. Primary gating asset on segment landing pages.</p>
-    <ul class="pdf-list">
-    <li><a class="pdf-link" href="./assets/2.1 - Segment 1-Pager - PE-Backed Home Care.pdf" target="_blank" rel="noopener">PE-backed home care</a> <span class="pdf-filename">2.1 - Segment 1-Pager - PE-Backed Home Care.pdf</span></li>
-    <li><a class="pdf-link" href="./assets/2.2 - Segment 1-Pager - CCRCs.pdf" target="_blank" rel="noopener">CCRCs</a> <span class="pdf-filename">2.2 - Segment 1-Pager - CCRCs.pdf</span></li>
-    <li><a class="pdf-link" href="./assets/2.3 - Segment 1-Pager - Corporate Assisted Living.pdf" target="_blank" rel="noopener">Corporate assisted living</a> <span class="pdf-filename">2.3 - Segment 1-Pager - Corporate Assisted Living.pdf</span></li>
-    <li><a class="pdf-link" href="./assets/2.4 - Segment 1-Pager - Independent Living and Rental Retirement.pdf" target="_blank" rel="noopener">Independent living and rental retirement</a> <span class="pdf-filename">2.4 - Segment 1-Pager - Independent Living and Rental Retirement.pdf</span></li>
-    <li><a class="pdf-link" href="./assets/2.5 - Segment 1-Pager - For-Profit Skilled Nursing Facilities.pdf" target="_blank" rel="noopener">For-profit SNFs</a> <span class="pdf-filename">2.5 - Segment 1-Pager - For-Profit Skilled Nursing Facilities.pdf</span></li>
-    <li><a class="pdf-link" href="./assets/2.6 - Segment 1-Pager - Multi-Site Home Care.pdf" target="_blank" rel="noopener">Multi-site home care</a> <span class="pdf-filename">2.6 - Segment 1-Pager - Multi-Site Home Care.pdf</span></li>
-    <li><a class="pdf-link" href="./assets/2.7 - Segment 1-Pager - Home Health Agencies.pdf" target="_blank" rel="noopener">Home health agencies</a> <span class="pdf-filename">2.7 - Segment 1-Pager - Home Health Agencies.pdf</span></li>
+    <p>Seven clean, standardised HTML one-pagers. Each opens as its own web page with consistent Able Care branding and a 'Save as PDF' button. Share the URL, or print to PDF for a downloadable version. Primary gating asset for each segment's landing page and the lead offer in the BDR sequences.</p>
+    <ul class="page-list">
+    <li><a class="page-link" href="./one-pagers/pe-backed-home-care.html" target="_blank" rel="noopener">PE-backed home care</a> <span class="page-hint">Opens in a new tab. Save as PDF from inside.</span></li>
+    <li><a class="page-link" href="./one-pagers/multi-site-home-care.html" target="_blank" rel="noopener">Multi-site home care</a> <span class="page-hint">Opens in a new tab. Save as PDF from inside.</span></li>
+    <li><a class="page-link" href="./one-pagers/ccrcs.html" target="_blank" rel="noopener">CCRCs</a> <span class="page-hint">Opens in a new tab. Save as PDF from inside.</span></li>
+    <li><a class="page-link" href="./one-pagers/corporate-assisted-living.html" target="_blank" rel="noopener">Corporate assisted living</a> <span class="page-hint">Opens in a new tab. Save as PDF from inside.</span></li>
+    <li><a class="page-link" href="./one-pagers/independent-living.html" target="_blank" rel="noopener">Independent living and rental retirement</a> <span class="page-hint">Opens in a new tab. Save as PDF from inside.</span></li>
+    <li><a class="page-link" href="./one-pagers/for-profit-snfs.html" target="_blank" rel="noopener">For-profit SNFs</a> <span class="page-hint">Opens in a new tab. Save as PDF from inside.</span></li>
+    <li><a class="page-link" href="./one-pagers/home-health-agencies.html" target="_blank" rel="noopener">Home health agencies</a> <span class="page-hint">Opens in a new tab. Save as PDF from inside.</span></li>
     </ul>
-    <p class="muted-note">PDFs are generated from the Able Care asset library. If a link returns 404, the PDF has not been copied to the site's <code>/assets/</code> folder yet.</p>
   </div>
 </section>
 
@@ -13544,6 +13618,14 @@ Deliverables
     <h1>Marketing documents</h1>
     <p class="library-intro">Operational and administrative documents that keep the sales and marketing system running. Admin set-ups, integrations, process guides.</p>
   </header>
+
+  <nav class="jump-nav" aria-label="Jump to section">
+    <div class="jn-label">Jump to</div>
+    <div class="jn-grid">
+  <div class="jn-block"><a href="#ops-admin" class="jn-title">Administration and integrations</a><div class="jn-items"><a href="#docs-salesforce-subscribers" class="jn-item">Salesforce: website subscribers admin setup</a></div></div>
+    </div>
+  </nav>
+
 
 <section id="ops-admin" class="asset-section">
   <h2 class="section-heading">Administration and integrations</h2>
